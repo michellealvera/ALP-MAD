@@ -9,12 +9,19 @@ import Foundation
 
 struct SymbolHelper {
     
-    let home = "home"
-    let clock = "clock"
-//    let person =
-//    let trashbin =
-//    let editPencil =
-//    let hotDrink =
-//    let bed = 
+    let timer = "clock"
+    let tasks = "list.clipboard"
+    let profile = "person"
+    let delete = "trash"
+    let edit = "pencil"
+    let hotDrink = "cup.and.saucer"
+    let bed = "bed.double"
+    let play = "play.fill"
+    let backward = "backward.fill"
+    let forward = "forward.fill"
+    let pause = "pause.fill"
+    let more = "ellipsis"
+    let add = "plus.circle.fill"
+    let next = "arrow.forward"
     
 }
