@@ -130,8 +130,7 @@ struct TimerView: View {
                     .trim(from: startProgress > toProgress ? 0 : startProgress, to: toProgress + (-reverseRotation / 360))
 //                5F2EEA
                     .stroke(GradientHelper.violetFuschiaGradient, style:
-                    StrokeStyle(lineWidth: 40, lineCap:
-                            .round, lineJoin: .round))
+                    StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
                     .rotationEffect(.init(degrees: -90))
                     .rotationEffect(.init(degrees: reverseRotation))
                 
