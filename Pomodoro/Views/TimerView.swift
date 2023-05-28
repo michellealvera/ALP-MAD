@@ -10,13 +10,17 @@ import SwiftUI
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
     
-    // MARK: Properties
+    // MARK: Clock View Properties
     @State var startAngle: Double = 0
     // Since our to progress is 0.5
     // 0.5 * 360 = 180
     @State var toAngle: Double = 180
     @State var startProgress: CGFloat = 0
-    @State var toProgress: CGFloat = 0.5
+    @State var toProgress: CGFloat = 0.95
+    
+    
+    // MARK: Timer Properties
+    @State var isRunning: Bool = false
     
     let welcomeMessage = ["Marcell"]
     
@@ -34,6 +38,7 @@ struct TimerView: View {
                     Text("Welcome, ")
                         .font(.title.bold())
                         .foregroundColor(.black)
+                    // Replace this with current users name
                     + Text(welcomeMessage[0])
                         .font(.title.bold())
                         .foregroundColor(Color("Violet 500"))
@@ -46,14 +51,36 @@ struct TimerView: View {
             SleepTimerSlider()
                 .padding(.top, 50)
             
-            HStack{
+            if(isRunning){
+                
+                HStack{
+                    
+                    Button("Reset") {
+                        isRunning = false
+                        // Code to set the time to original
+                    }.buttonStyle(VioletOutlinedCapsuleButton())
+                    
+                    Spacer()
+                    
+                    Button("Pause") {
+                        isRunning = false
+                    }.buttonStyle(VioletFilledCapsuleButton())
+                    
+                    
+                }
+                .padding(.top, 40)
+                .padding(.horizontal)
+                
+                
+            } else {
                 
                 
                 Button {
-                    
+                    isRunning = true
                 } label: {
-                    Text("Reset")
-//                        .frame(maxWidth: 60)
+                    Text("Start")
+                        .font(.headline)
+    //                        .frame(maxWidth: 60)
                         .foregroundColor(Color("Violet 500"))
                         .padding(.vertical)
                         .padding(.horizontal, 40)
@@ -61,32 +88,14 @@ struct TimerView: View {
                             Capsule(style: .continuous)
                                 .stroke(Color("Violet 500"), lineWidth: 2)
                         )
-                        
                 }
-                
-                
-                Spacer()
-                
-                Button {
-                    
-                    
-                } label: {
-                    // Logic to change between Start / Pause
-                    // Needs another boolean state
-                    Text("Pause")
-//                        .frame(maxWidth: 60)
-                        .foregroundColor (.white)
-                        .padding(.vertical)
-                        .padding(.horizontal, 40)
-                        .background(Color("Violet 500"),in: Capsule())
-                }
+                .padding(.top, 40)
+                .padding(.horizontal)
                 
                 
             }
-            .padding(.top, 40)
-            .padding()
             
-                            
+            
             HStack(spacing: 25){
                 
                 VStack(alignment: .leading, spacing: 8) {
@@ -155,8 +164,9 @@ struct TimerView: View {
                         // Each hour will have big Line
                         // 60/5 = 12
                         // 12 Hours
-                            .frame (width: 2, height: index % 5 ==
-                        0 ? 10 : 7)
+                            .frame (
+                                width: index % 5 == 0 ? 3 : 2,
+                                height: index % 5 == 0 ? 10 : 7)
                         // Setting into entire Circle
                             .offset (y: (width - 60) / 2)
                             .rotationEffect(.init(degrees:
@@ -165,16 +175,16 @@ struct TimerView: View {
                     
                     
                     // MARK: Clock Text
-                    let texts = [6,9,12,3]
-                    ForEach(texts.indices, id: \.self){index in
-                        Text("\(texts[index])")
-                            .font(.caption.bold() )
-                            .foregroundColor(.black)
-                            .rotationEffect(.init(degrees: Double(index) * -90))
-                            .offset(y: (width - 90) / 2)
-                        // 360/4 = 90
-                            .rotationEffect(.init(degrees: Double(index) * 90))
-                    }
+//                    let texts = [6,9,12,3]
+//                    ForEach(texts.indices, id: \.self){index in
+//                        Text("\(texts[index])")
+//                            .font(.caption.bold() )
+//                            .foregroundColor(.black)
+//                            .rotationEffect(.init(degrees: Double(index) * -90))
+//                            .offset(y: (width - 90) / 2)
+//                        // 360/4 = 90
+//                            .rotationEffect(.init(degrees: Double(index) * 90))
+//                    }
                     
                 }
                 
@@ -187,7 +197,7 @@ struct TimerView: View {
                 Circle()
                     .trim(from: startProgress > toProgress ? 0 : startProgress, to: toProgress + (-reverseRotation / 360))
 //                5F2EEA
-                    .stroke(Color(.blue), style:
+                    .stroke(GradientHelper.violetFuschiaGradient, style:
                     StrokeStyle(lineWidth: 40, lineCap:
                             .round, lineJoin: .round))
                     .rotationEffect(.init(degrees: -90))
