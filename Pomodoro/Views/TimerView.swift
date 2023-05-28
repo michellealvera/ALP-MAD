@@ -18,6 +18,8 @@ struct TimerView: View {
     @State var startProgress: CGFloat = 0
     @State var toProgress: CGFloat = 0.5
     
+    let welcomeMessage = ["Marcell"]
+    
     var body: some View {
         
         VStack{
@@ -25,41 +27,66 @@ struct TimerView: View {
     
                 VStack(alignment: .leading, spacing: 8) {
                     
-                    Text ("Today")
+                    Text("Home")
+                        .font(.headline)
+                        .foregroundColor(Color("Grayscale Label"))
+                    
+                    Text("Welcome, ")
                         .font(.title.bold())
+                        .foregroundColor(.black)
+                    + Text(welcomeMessage[0])
+                        .font(.title.bold())
+                        .foregroundColor(Color("Violet 500"))
                     
-                    Text ("Good Morning! Justine")
-                        .foregroundColor(.gray)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-    
-                    Button{
-                    
-                    
-                    } label: {
-                        Text("Hi")
-//                        Image ("Pic" )
-//                        .resizable ()
-//                        .aspectRatio(contentMode:.fill)
-//                        .frame(width: 45, height: 45)
-//                        .clipShape(Circle ())
-                    }
-    
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+    
+            }
+            
             SleepTimerSlider()
                 .padding(.top, 50)
             
-            Button {
+            HStack{
                 
-            } label: {
-                Text("Start Sleep")
-                    .foregroundColor (.white)
-                    .padding(.vertical)
-                    .padding(.horizontal, 40)
-                    .background(Color(.blue),in: Capsule())
+                
+                Button {
+                    
+                } label: {
+                    Text("Reset")
+//                        .frame(maxWidth: 60)
+                        .foregroundColor(Color("Violet 500"))
+                        .padding(.vertical)
+                        .padding(.horizontal, 40)
+                        .overlay(
+                            Capsule(style: .continuous)
+                                .stroke(Color("Violet 500"), lineWidth: 2)
+                        )
+                        
+                }
+                
+                
+                Spacer()
+                
+                Button {
+                    
+                    
+                } label: {
+                    // Logic to change between Start / Pause
+                    // Needs another boolean state
+                    Text("Pause")
+//                        .frame(maxWidth: 60)
+                        .foregroundColor (.white)
+                        .padding(.vertical)
+                        .padding(.horizontal, 40)
+                        .background(Color("Violet 500"),in: Capsule())
+                }
+                
+                
             }
-            .padding(.top, 45)
-                
+            .padding(.top, 40)
+            .padding()
+            
+                            
             HStack(spacing: 25){
                 
                 VStack(alignment: .leading, spacing: 8) {
