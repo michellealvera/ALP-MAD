@@ -12,23 +12,21 @@ struct TimerView: View {
     
     // MARK: Clock View Properties
     @State var startAngle: Double = 0
-    // Since our to progress is 0.5
-    // 0.5 * 360 = 180
-    @State var toAngle: Double = 180
     @State var startProgress: CGFloat = 0
+    // Since our to progress is 0.95
+    // 0.95 * 360 = 342
+    @State var toAngle: Double = 342
     @State var toProgress: CGFloat = 0.95
     
     
-    // MARK: Timer Properties
+    // MARK: TimerView Properties
+    @EnvironmentObject var modelData: ModelData
     @State var isRunning: Bool = false
-    
-    let welcomeMessage = ["Marcell"]
-    
+        
     var body: some View {
         
         VStack{
             HStack{
-    
                 VStack(alignment: .leading, spacing: 8) {
                     
                     Text("Home")
@@ -39,13 +37,12 @@ struct TimerView: View {
                         .font(.title.bold())
                         .foregroundColor(.black)
                     // Replace this with current users name
-                    + Text(welcomeMessage[0])
+                    + Text("Marcell")
                         .font(.title.bold())
                         .foregroundColor(Color("Violet 500"))
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-    
             }
             
             SleepTimerSlider()
@@ -74,69 +71,18 @@ struct TimerView: View {
                 
             } else {
                 
-                
                 Button {
                     isRunning = true
                 } label: {
                     Text("Start")
                         .font(.headline)
-    //                        .frame(maxWidth: 60)
-                        .foregroundColor(Color("Violet 500"))
-                        .padding(.vertical)
-                        .padding(.horizontal, 40)
-                        .overlay(
-                            Capsule(style: .continuous)
-                                .stroke(Color("Violet 500"), lineWidth: 2)
-                        )
                 }
+                .buttonStyle(VioletOutlinedCapsuleButton())
                 .padding(.top, 40)
                 .padding(.horizontal)
                 
-                
             }
             
-            
-            HStack(spacing: 25){
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Label {
-                        Text ("Bedtime")
-                            .foregroundColor(.black)
-                    } icon: {
-                        Image(systemName: "moon.fill")
-                            .foregroundColor(Color(.blue))
-                    }
-                    .font(.callout)
-                    
-                    Text(getTime(angle: startAngle).formatted(date: .omitted,
-                                                              time: .shortened))
-                    .font(.title2.bold())
-                }
-                .frame(maxWidth: .infinity, alignment: .center)
-                
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Label {
-                        Text ("Alarm")
-                            .foregroundColor(.black)
-                    } icon: {
-                        Image(systemName: "alarm")
-                            .foregroundColor(Color(.blue))
-                    }
-                    .font(.callout)
-                    
-                    Text(getTime(angle: toAngle).formatted(date: .omitted,
-                                                              time: .shortened))
-                    .font(.title2.bold())
-                }
-                .frame(maxWidth: .infinity, alignment: .center)
-                
-                
-            }
-                .padding()
-                .background(.black.opacity(0.06), in: RoundedRectangle(cornerRadius: 15))
-                .padding(.top, 35)
-                
         }
         .padding()
         // Moving To Top Without Spacer
@@ -154,8 +100,7 @@ struct TimerView: View {
             
             ZStack{
                 
-                
-                // MARK: Clock Design
+                // MARK: Inner Clock Design
                 ZStack{
                     
                     ForEach (1...60,id: \.self){index in
@@ -172,19 +117,6 @@ struct TimerView: View {
                             .rotationEffect(.init(degrees:
                              Double(index) * 6))
                     }
-                    
-                    
-                    // MARK: Clock Text
-//                    let texts = [6,9,12,3]
-//                    ForEach(texts.indices, id: \.self){index in
-//                        Text("\(texts[index])")
-//                            .font(.caption.bold() )
-//                            .foregroundColor(.black)
-//                            .rotationEffect(.init(degrees: Double(index) * -90))
-//                            .offset(y: (width - 90) / 2)
-//                        // 360/4 = 90
-//                            .rotationEffect(.init(degrees: Double(index) * 90))
-//                    }
                     
                 }
                 
