@@ -21,6 +21,7 @@
 		041531AE2A1C67E5000218C4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531AD2A1C67E5000218C4 /* ProfileView.swift */; };
 		04ACE3BC2A233F3100230D3B /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BB2A233F3100230D3B /* TasksView.swift */; };
 		04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BD2A23879800230D3B /* GradientHelper.swift */; };
+		04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BF2A2388F800230D3B /* ModelData.swift */; };
 		04B5B0482A2054E800905FA2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B0472A2054E800905FA2 /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		041531AD2A1C67E5000218C4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		04ACE3BB2A233F3100230D3B /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		04ACE3BD2A23879800230D3B /* GradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHelper.swift; sourceTree = "<group>"; };
+		04ACE3BF2A2388F800230D3B /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		04B5B0472A2054E800905FA2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 			children = (
 				041531A72A1C5D22000218C4 /* User.swift */,
 				041531A92A1C5D2B000218C4 /* Timer.swift */,
+				04ACE3BF2A2388F800230D3B /* ModelData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				041531A42A1C5CAD000218C4 /* MainView.swift in Sources */,
 				041531AA2A1C5D2B000218C4 /* Timer.swift in Sources */,
 				041531A82A1C5D22000218C4 /* User.swift in Sources */,
+				04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */,
 				040162232A1C4B6100AB9F53 /* ContentView.swift in Sources */,
 				040162212A1C4B6100AB9F53 /* PomodoroApp.swift in Sources */,
 				04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */,
