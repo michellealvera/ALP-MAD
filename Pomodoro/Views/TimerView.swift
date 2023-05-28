@@ -106,6 +106,7 @@ struct TimerView: View {
                     ForEach (1...60,id: \.self){index in
                         Rectangle ()
                             .fill(index % 5 == 0 ? .black : .gray)
+//                            .fill(LinearGradient(gradient: Gradient(colors: [Color("Fuschia 500"), Color("Violet 500")]), startPoint: .top, endPoint: .bottom))
                         // Each hour will have big Line
                         // 60/5 = 12
                         // 12 Hours
