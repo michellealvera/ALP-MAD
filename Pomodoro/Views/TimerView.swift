@@ -81,6 +81,7 @@ struct TimerView: View {
                 .padding(.top, 40)
                 .padding(.horizontal)
                 
+                
             }
             
         }
@@ -106,7 +107,6 @@ struct TimerView: View {
                     ForEach (1...60,id: \.self){index in
                         Rectangle ()
                             .fill(index % 5 == 0 ? .black : .gray)
-//                            .fill(LinearGradient(gradient: Gradient(colors: [Color("Fuschia 500"), Color("Violet 500")]), startPoint: .top, endPoint: .bottom))
                         // Each hour will have big Line
                         // 60/5 = 12
                         // 12 Hours
@@ -114,7 +114,7 @@ struct TimerView: View {
                                 width: index % 5 == 0 ? 3 : 2,
                                 height: index % 5 == 0 ? 10 : 7)
                         // Setting into entire Circle
-                            .offset (y: (width - 60) / 2)
+                            .offset(y: (width - 60) / 2)
                             .rotationEffect(.init(degrees:
                              Double(index) * 6))
                     }
@@ -138,7 +138,7 @@ struct TimerView: View {
                 // Slider Buttons
                 Image(systemName: "moon.fill")
                     .font(.callout)
-                    .foregroundColor(Color(.blue))
+                    .foregroundColor(Color("Violet 700"))
                     .frame(width: 30, height: 30)
                     .rotationEffect(.init(degrees: 90))
                     .rotationEffect(.init(degrees: -startAngle))
@@ -158,7 +158,7 @@ struct TimerView: View {
                 
                 Image(systemName: "alarm")
                     .font(.callout)
-                    .foregroundColor(Color(.blue))
+                    .foregroundColor(Color("Fuschia 700"))
                     .frame(width: 30, height: 30)
                 // Rotating Image Inside the circle
                     .rotationEffect(.init(degrees: 90))
@@ -179,6 +179,8 @@ struct TimerView: View {
                 
                 // MARK: Hour Text
                 VStack(spacing: 6){
+                    Text("Timer Name")
+                        .font(.callout)
                     Text ("\(getTimeDifference().0)hr")
                         .font(.largeTitle.bold())
                     Text("\(getTimeDifference().1)min")
