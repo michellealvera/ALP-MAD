@@ -35,5 +35,13 @@ struct VioletOutlinedCapsuleButton: ButtonStyle {
     }
 }
 
+//struct EaseIn: ButtonStyle {
+//
+//    func makeBody(configuration: Configuration) -> some View {
+//            configuration.label
+//                .scaleEffect(configuration.isPressed ? 1.5 : 1)
+//                .animation(.easeOut(duration: 0.3), value: configuration.isPressed)
+//    }
+//}
 
 
