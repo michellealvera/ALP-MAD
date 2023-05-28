@@ -10,9 +10,28 @@ import Foundation
 struct User {
     
     var name:String
+    var timers:[Timer]
     
-    init(name username:String){
-        self.name = username
+    mutating func clearAllTimer(){
+        
+        if(timers.isEmpty) { return }
+        self.timers.removeAll()
     }
+    
+    init(name username:String, timers: [Timer]){
+        self.name = username
+        self.timers = timers
+    }
+    
+}
+
+
+extension User {
+
+    static let sampleUser: User =
+    User(
+        name: "DefaultName",
+        timers: [Timer.sampleTimer]
+    )
     
 }
