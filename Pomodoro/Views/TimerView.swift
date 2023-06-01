@@ -10,24 +10,24 @@ import Foundation
 
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
-        
+    
     
     // MARK: Clock View Properties
     
     var startProgress: CGFloat = 0
     // Since our to progress is 0.95
     // 0.95 * 360 = 342
-//    @State var toAngle: Double = 342
-//    @State var toProgress: CGFloat = 0.95
+    //    @State var toAngle: Double = 342
+    //    @State var toProgress: CGFloat = 0.95
     
     
     // MARK: TimerView Properties
     @EnvironmentObject var modelData: ModelData
     @StateObject private var vm = ViewModel()
     private let timer = Timer.publish(every: 1, on: .main, in:
-        .common).autoconnect()
+            .common).autoconnect()
     @State var isRunning: Bool = false
-        
+    
     var body: some View {
         
         VStack{
@@ -92,10 +92,14 @@ struct TimerView: View {
                 
             }
             
+
+            
+            Spacer()
+            MusicPlayerView()
         }
-        .padding()
         // Moving To Top Without Spacer
         .frame(maxHeight: .infinity, alignment: .top)
+        .edgesIgnoringSafeArea(.horizontal)
         .onAppear{
             self.vm.setup(
                 activeTimer: self.modelData.activeUser.getActiveTimer()
@@ -129,7 +133,7 @@ struct TimerView: View {
                         // Setting into entire Circle
                             .offset(y: (width - 60) / 2)
                             .rotationEffect(.init(degrees:
-                             Double(index) * 6))
+                                                    Double(index) * 6))
                     }
                     
                 }
@@ -142,9 +146,9 @@ struct TimerView: View {
                 
                 Circle()
                     .trim(from: startProgress > vm.toProgress ? 0 : startProgress, to: vm.toProgress + (-reverseRotation / 360))
-//                5F2EEA
+                //                5F2EEA
                     .stroke(GradientHelper.violetFuschiaAngularGradient, style:
-                    StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
+                                StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
                     .rotationEffect(.init(degrees: -90))
                     .rotationEffect(.init(degrees: reverseRotation))
                     .animation(.easeInOut(duration: 0.5), value: vm.sessionDuration)
@@ -156,7 +160,7 @@ struct TimerView: View {
                     Text("\(vm.activeTimer.name)")
                         .font(.caption.italic())
                         .padding(.top, -40)
-                                        
+                    
                     
                     Text("\(vm.theTime)")
                         .font(.largeTitle.bold())
@@ -174,7 +178,7 @@ struct TimerView: View {
             }
         }
         .frame(width: screenBounds().width / 1.6, height:
-        screenBounds().width / 1.6)
+                screenBounds().width / 1.6)
         
     }
     

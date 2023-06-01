@@ -30,6 +30,12 @@
 		04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BF2A2388F800230D3B /* ModelData.swift */; };
 		04ACE3C22A238C0E00230D3B /* ButtonStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */; };
 		04B5B0482A2054E800905FA2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B0472A2054E800905FA2 /* TimerView.swift */; };
+		25243B9D2A28E93400E45F17 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243B9C2A28E93400E45F17 /* Music.swift */; };
+		25243B9F2A28E95600E45F17 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 25243B9E2A28E95600E45F17 /* music-mystique.mp3 */; };
+		25243BA22A28E9C800E45F17 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 25243BA12A28E9C800E45F17 /* Subsonic */; };
+		25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */; };
+		25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */; };
+		25243BAF2A2904A100E45F17 /* music-411Ψ892.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 25243BAE2A2904A100E45F17 /* music-411Ψ892.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +82,11 @@
 		04ACE3BF2A2388F800230D3B /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleHelper.swift; sourceTree = "<group>"; };
 		04B5B0472A2054E800905FA2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		25243B9C2A28E93400E45F17 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		25243B9E2A28E95600E45F17 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
+		25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
+		25243BAE2A2904A100E45F17 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25243BA22A28E9C800E45F17 /* Subsonic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +138,7 @@
 		0401621F2A1C4B6100AB9F53 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				25243B9B2A28E8F200E45F17 /* Musics */,
 				041095892A23B1F200095BC8 /* ViewModel */,
 				0415319E2A1C5BC5000218C4 /* Models */,
 				041531A02A1C5C07000218C4 /* Helpers */,
@@ -186,6 +199,7 @@
 				041531A72A1C5D22000218C4 /* User.swift */,
 				041531A92A1C5D2B000218C4 /* TimerTasks.swift */,
 				04ACE3BF2A2388F800230D3B /* ModelData.swift */,
+				25243B9C2A28E93400E45F17 /* Music.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +207,7 @@
 		0415319F2A1C5BE3000218C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				25243BA52A28F9A100E45F17 /* MusicPlayer */,
 				040259BD2A28D78B0050F1B4 /* Onboarding */,
 				041531B02A1C67FE000218C4 /* Timers */,
 				041531AF2A1C67F2000218C4 /* Profile */,
@@ -231,6 +246,24 @@
 			path = Timers;
 			sourceTree = "<group>";
 		};
+		25243B9B2A28E8F200E45F17 /* Musics */ = {
+			isa = PBXGroup;
+			children = (
+				25243BAE2A2904A100E45F17 /* music-411Ψ892.mp3 */,
+				25243B9E2A28E95600E45F17 /* music-mystique.mp3 */,
+			);
+			path = Musics;
+			sourceTree = "<group>";
+		};
+		25243BA52A28F9A100E45F17 /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */,
+				25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */,
+			);
+			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +280,9 @@
 			dependencies = (
 			);
 			name = Pomodoro;
+			packageProductDependencies = (
+				25243BA12A28E9C800E45F17 /* Subsonic */,
+			);
 			productName = Pomodoro;
 			productReference = 0401621D2A1C4B6100AB9F53 /* Pomodoro.app */;
 			productType = "com.apple.product-type.application";
@@ -319,6 +355,9 @@
 				Base,
 			);
 			mainGroup = 040162142A1C4B6100AB9F53;
+			packageReferences = (
+				25243BA02A28E9C800E45F17 /* XCRemoteSwiftPackageReference "Subsonic" */,
+			);
 			productRefGroup = 0401621E2A1C4B6100AB9F53 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -335,8 +374,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25243B9F2A28E95600E45F17 /* music-mystique.mp3 in Resources */,
 				040162282A1C4B6300AB9F53 /* Preview Assets.xcassets in Resources */,
 				040162252A1C4B6300AB9F53 /* Assets.xcassets in Resources */,
+				25243BAF2A2904A100E45F17 /* music-411Ψ892.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,15 +410,18 @@
 				04ACE3C22A238C0E00230D3B /* ButtonStyleHelper.swift in Sources */,
 				041531AE2A1C67E5000218C4 /* ProfileView.swift in Sources */,
 				040259B82A28BECD0050F1B4 /* ProfileCardView.swift in Sources */,
+				25243B9D2A28E93400E45F17 /* Music.swift in Sources */,
 				040259BA2A28C2220050F1B4 /* OnboardingPagesView.swift in Sources */,
 				041531A42A1C5CAD000218C4 /* MainView.swift in Sources */,
 				041531AA2A1C5D2B000218C4 /* TimerTasks.swift in Sources */,
 				041095862A239F6300095BC8 /* ExperimentalTimerView.swift in Sources */,
+				25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */,
 				041531A82A1C5D22000218C4 /* User.swift in Sources */,
 				04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */,
 				040162232A1C4B6100AB9F53 /* ContentView.swift in Sources */,
 				040162212A1C4B6100AB9F53 /* PomodoroApp.swift in Sources */,
 				040313932A25954700A30A12 /* MultipickerView.swift in Sources */,
+				25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */,
 				04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,6 +747,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25243BA02A28E9C800E45F17 /* XCRemoteSwiftPackageReference "Subsonic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/Subsonic";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25243BA12A28E9C800E45F17 /* Subsonic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25243BA02A28E9C800E45F17 /* XCRemoteSwiftPackageReference "Subsonic" */;
+			productName = Subsonic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 040162152A1C4B6100AB9F53 /* Project object */;
 }
