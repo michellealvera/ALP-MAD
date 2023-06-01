@@ -10,14 +10,39 @@ import SwiftUI
 struct ProfileCardView: View {
     
     var user: User
+    @State var confirmClearTimer: Bool = false
     
     var body: some View {
         
-        VStack(spacing: 6){
+        VStack(alignment: .leading, spacing: 6){
             Text("\(user.name)")
+                .font(.title.bold())
+                .multilineTextAlignment(.leading)
+            
+            
+            Button {
+                confirmClearTimer.toggle()
+            } label: {
+                
+                HStack{
+                    Image(systemName: SymbolHelper().delete)
+                    
+                    Text("Clear Timer")
+                        .font(.callout)
+                        .foregroundColor(Color("Grayscale Label"))
+                }
+                
+            }
+            
         }
-        .frame(maxHeight: .infinity, alignment: .top)
-        
+//        .background(.thinMaterial).cornerRadius(20)
+//        .overlay(
+//            RoundedRectangle(cornerRadius: 20)
+//                .background(Color("Grayscale BG")))
+        .padding()
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity, alignment: .top)
         
     }
 }

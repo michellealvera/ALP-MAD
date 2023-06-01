@@ -12,7 +12,16 @@ struct ProfileView: View {
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
-        ProfileCardView(user: modelData.activeUser)
+        
+        NavigationStack{
+            
+            VStack(spacing: 6){
+                ProfileCardView(user: modelData.activeUser)
+            }.navigationTitle("Profile")
+                
+            
+        }
+        
     }
 }
 
