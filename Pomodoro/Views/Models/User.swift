@@ -12,6 +12,11 @@ struct User {
     var name:String
     var timers:[TimerTasks]
     
+    func getActiveTimer()->TimerTasks{
+        
+        return timers.first(where: { $0.isActiveTimer == true } ) ?? TimerTasks.emptyTimer
+    }
+    
     mutating func clearAllTimer(){
         
         if(timers.isEmpty) { return }
