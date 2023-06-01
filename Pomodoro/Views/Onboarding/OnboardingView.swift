@@ -22,6 +22,7 @@ struct OnboardingView: View {
                 .background(.orange)
             
             // Part where we ask for their name
+            // Pass the Binding to this specific view
             // Creates a different view
             
             
