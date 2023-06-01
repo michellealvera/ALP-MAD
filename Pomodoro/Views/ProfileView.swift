@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @EnvironmentObject var modelData: ModelData
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ProfileCardView(user: modelData.activeUser)
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
+    
+    static let modelData = ModelData()
+    
     static var previews: some View {
         ProfileView()
+            .environmentObject(modelData)
     }
 }

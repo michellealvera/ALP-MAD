@@ -14,6 +14,8 @@
 		040162322A1C4B6300AB9F53 /* PomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040162312A1C4B6300AB9F53 /* PomodoroTests.swift */; };
 		0401623C2A1C4B6300AB9F53 /* PomodoroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401623B2A1C4B6300AB9F53 /* PomodoroUITests.swift */; };
 		0401623E2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401623D2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift */; };
+		040259B82A28BECD0050F1B4 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040259B72A28BECD0050F1B4 /* ProfileCardView.swift */; };
+		040259BA2A28C2220050F1B4 /* OnboardingPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040259B92A28C2220050F1B4 /* OnboardingPagesView.swift */; };
 		040313932A25954700A30A12 /* MultipickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040313922A25954700A30A12 /* MultipickerView.swift */; };
 		041095862A239F6300095BC8 /* ExperimentalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041095852A239F6300095BC8 /* ExperimentalTimerView.swift */; };
 		041095882A23B1EB00095BC8 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041095872A23B1EB00095BC8 /* TimerViewModel.swift */; };
@@ -57,6 +59,8 @@
 		040162372A1C4B6300AB9F53 /* PomodoroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0401623B2A1C4B6300AB9F53 /* PomodoroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITests.swift; sourceTree = "<group>"; };
 		0401623D2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		040259B72A28BECD0050F1B4 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
+		040259B92A28C2220050F1B4 /* OnboardingPagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagesView.swift; sourceTree = "<group>"; };
 		040313922A25954700A30A12 /* MultipickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipickerView.swift; sourceTree = "<group>"; };
 		041095852A239F6300095BC8 /* ExperimentalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalTimerView.swift; sourceTree = "<group>"; };
 		041095872A23B1EB00095BC8 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				04B5B0472A2054E800905FA2 /* TimerView.swift */,
 				041095852A239F6300095BC8 /* ExperimentalTimerView.swift */,
 				04ACE3BB2A233F3100230D3B /* TasksView.swift */,
+				040259B92A28C2220050F1B4 /* OnboardingPagesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 		041531AF2A1C67F2000218C4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				040259B72A28BECD0050F1B4 /* ProfileCardView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -350,6 +356,8 @@
 				041531A22A1C5C29000218C4 /* SymbolHelper.swift in Sources */,
 				04ACE3C22A238C0E00230D3B /* ButtonStyleHelper.swift in Sources */,
 				041531AE2A1C67E5000218C4 /* ProfileView.swift in Sources */,
+				040259B82A28BECD0050F1B4 /* ProfileCardView.swift in Sources */,
+				040259BA2A28C2220050F1B4 /* OnboardingPagesView.swift in Sources */,
 				041531A42A1C5CAD000218C4 /* MainView.swift in Sources */,
 				041531AA2A1C5D2B000218C4 /* TimerTasks.swift in Sources */,
 				041095862A239F6300095BC8 /* ExperimentalTimerView.swift in Sources */,
