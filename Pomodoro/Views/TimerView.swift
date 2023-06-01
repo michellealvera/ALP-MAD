@@ -24,7 +24,7 @@ struct TimerView: View {
     // MARK: TimerView Properties
     @EnvironmentObject var modelData: ModelData
     @StateObject private var vm = ViewModal()
-    private let timer = TimerTasks.publish(every: 1, on: .main, in:
+    private let timer = Timer.publish(every: 1, on: .main, in:
         .common).autoconnect()
     @State var isRunning: Bool = false
         
@@ -53,6 +53,8 @@ struct TimerView: View {
             SleepTimerSlider()
                 .padding(.top, 50)
             
+            // Refactor and and all isRunning instance to the ViewModal
+            // Includes handling the logic to set running to true and false
             if(isRunning){
                 
                 HStack{
