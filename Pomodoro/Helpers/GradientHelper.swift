@@ -25,6 +25,13 @@ struct GradientHelper {
     )
     
     
+    func violetFuschiaLinearGradientBuilder(start: UnitPoint, end: UnitPoint) -> LinearGradient {
+        return LinearGradient(
+                colors: [Color("Fuschia 500"), Color("Violet 500")],
+                startPoint: start,
+                endPoint: end)
+    }
+    
 //    static let violetFuschiaLinearGradient = LinearGradient(
 //        colors: [Color("Fuschia 500"), Color("Violet 500")],
 //        startPoint: .leading,
