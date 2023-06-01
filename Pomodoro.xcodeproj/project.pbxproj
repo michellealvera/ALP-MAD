@@ -31,11 +31,9 @@
 		04ACE3C22A238C0E00230D3B /* ButtonStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */; };
 		04B5B0482A2054E800905FA2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B0472A2054E800905FA2 /* TimerView.swift */; };
 		25243B9D2A28E93400E45F17 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243B9C2A28E93400E45F17 /* Music.swift */; };
-		25243B9F2A28E95600E45F17 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 25243B9E2A28E95600E45F17 /* music-mystique.mp3 */; };
 		25243BA22A28E9C800E45F17 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 25243BA12A28E9C800E45F17 /* Subsonic */; };
 		25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */; };
 		25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */; };
-		25243BAF2A2904A100E45F17 /* music-411Ψ892.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 25243BAE2A2904A100E45F17 /* music-411Ψ892.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,10 +81,8 @@
 		04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleHelper.swift; sourceTree = "<group>"; };
 		04B5B0472A2054E800905FA2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		25243B9C2A28E93400E45F17 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
-		25243B9E2A28E95600E45F17 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
 		25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
-		25243BAE2A2904A100E45F17 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,8 +245,6 @@
 		25243B9B2A28E8F200E45F17 /* Musics */ = {
 			isa = PBXGroup;
 			children = (
-				25243BAE2A2904A100E45F17 /* music-411Ψ892.mp3 */,
-				25243B9E2A28E95600E45F17 /* music-mystique.mp3 */,
 			);
 			path = Musics;
 			sourceTree = "<group>";
@@ -374,10 +368,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25243B9F2A28E95600E45F17 /* music-mystique.mp3 in Resources */,
 				040162282A1C4B6300AB9F53 /* Preview Assets.xcassets in Resources */,
 				040162252A1C4B6300AB9F53 /* Assets.xcassets in Resources */,
-				25243BAF2A2904A100E45F17 /* music-411Ψ892.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
