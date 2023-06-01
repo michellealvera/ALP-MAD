@@ -67,6 +67,10 @@ extension TimerView {
             self.endDate = theEndDate
         }
         
+        func resume(){
+            self.isActive = true
+        }
+        
         func pause(){
             self.isActive = false
         }
@@ -160,7 +164,7 @@ extension TimerView {
 
             let date = Date(timeIntervalSince1970: diff)
             let calendar = Calendar.current
-//            let hours = calendar.component(.hour, from: date)
+            let hours = calendar.component(.hour, from: date)
             let minutes = calendar.component(.minute, from: date)
             let seconds = calendar.component(.second, from: date)
 
