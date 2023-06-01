@@ -8,7 +8,7 @@
 import Foundation
 
 // Study
-// Time is stored in minutes
+// Time is stored in seconds
 
 struct TimerTasks: Identifiable, Hashable {
     
