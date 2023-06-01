@@ -195,12 +195,19 @@ struct TimerView: View {
                 
                 // MARK: Hour Text
                 VStack(spacing: 6){
-                    Text("Timer Name")
-                        .font(.callout)
-                    Text ("\(getTimeDifference().0)hr")
+                    
+                    Text("\(vm.activeTimer.name)")
+                        .font(.caption.italic())
+                    
+                    Text("\(vm.theTime)")
                         .font(.largeTitle.bold())
-                    Text("\(getTimeDifference().1)min")
-                        .foregroundColor(.gray)
+                        .padding()
+                    
+
+//                    Text ("\(getTimeDifference().0)hr")
+//                        .font(.largeTitle.bold())
+//                    Text("\(getTimeDifference().1)min")
+//                        .foregroundColor(.gray)
                 }
                 
             }
@@ -242,56 +249,56 @@ struct TimerView: View {
         
     }
     
-    func getTime(angle: Double)->Date{
-        
-        // 360 / 12 = 30
-        // 12 = Hours
-        let progress = angle / 30
-        // It will be 6.05
-        // 6 is Hour
-        // 0.5 is Minutes
-        let hour = Int(progress)
-        // Why 12
-        // Since we're going to update time for each 5 minutes not for each minute
-        // 6.1 = 5 minute
-        let remainder = (progress.truncatingRemainder(dividingBy: 1)
-                         * 12).rounded()
-        
-        var minute = remainder * 5
-        // This is because minutes are returning 60 (12*5)
-        // avoiding that to get perfect time
-        minute = (minute > 55 ? 55 : minute)
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.month,.day,.year], from: Date())
-          
-        let rawDay = (components.day ?? 0)
-        var day: Int = 0
-
-        if angle == toAngle{
-            day = rawDay + 1
-        }
-        else{
-            day = (startAngle > toAngle) ? rawDay : rawDay + 1
-        }
-        if let date = formatter.date(from: "\(components.year ?? 0)-\(components.month ?? 0)-\(day) \(hour == 24 ? 0 : hour):\(Int(minute)):00"){
-            return date 
-        }
-        return .init()
-    }
+//    func getTime(angle: Double)->Date{
+//
+//        // 360 / 12 = 30
+//        // 12 = Hours
+//        let progress = angle / 30
+//        // It will be 6.05
+//        // 6 is Hour
+//        // 0.5 is Minutes
+//        let hour = Int(progress)
+//        // Why 12
+//        // Since we're going to update time for each 5 minutes not for each minute
+//        // 6.1 = 5 minute
+//        let remainder = (progress.truncatingRemainder(dividingBy: 1)
+//                         * 12).rounded()
+//
+//        var minute = remainder * 5
+//        // This is because minutes are returning 60 (12*5)
+//        // avoiding that to get perfect time
+//        minute = (minute > 55 ? 55 : minute)
+//
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents([.month,.day,.year], from: Date())
+//
+//        let rawDay = (components.day ?? 0)
+//        var day: Int = 0
+//
+//        if angle == toAngle{
+//            day = rawDay + 1
+//        }
+//        else{
+//            day = (startAngle > toAngle) ? rawDay : rawDay + 1
+//        }
+//        if let date = formatter.date(from: "\(components.year ?? 0)-\(components.month ?? 0)-\(day) \(hour == 24 ? 0 : hour):\(Int(minute)):00"){
+//            return date
+//        }
+//        return .init()
+//    }
     
-    func getTimeDifference()->(Int, Int){
-        
-        let calendar = Calendar.current
-        
-        let result = calendar.dateComponents([.hour,.minute], from: getTime(angle: startAngle), to: getTime(angle: toAngle))
-        
-        return (result.hour ?? 0, result.minute ?? 0)
-        
-    }
+//    func getTimeDifference()->(Int, Int){
+//
+//        let calendar = Calendar.current
+//
+//        let result = calendar.dateComponents([.hour,.minute], from: getTime(angle: startAngle), to: getTime(angle: toAngle))
+//        
+//        return (result.hour ?? 0, result.minute ?? 0)
+//
+//    }
     
     
 }
