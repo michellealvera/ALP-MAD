@@ -148,7 +148,7 @@ struct TimerView: View {
                 Circle()
                     .trim(from: startProgress > toProgress ? 0 : startProgress, to: toProgress + (-reverseRotation / 360))
 //                5F2EEA
-                    .stroke(GradientHelper.violetFuschiaGradient, style:
+                    .stroke(GradientHelper.violetFuschiaAngularGradient, style:
                     StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
                     .rotationEffect(.init(degrees: -90))
                     .rotationEffect(.init(degrees: reverseRotation))
@@ -157,9 +157,9 @@ struct TimerView: View {
                 // MARK: Hour Text
                 VStack(spacing: 6){
                     
-                    Text("\(vm.activeTimer.name)")
-                        .font(.caption.italic())
-                    
+//                    Text("\(vm.activeTimer.name)")
+//                        .font(.caption.italic())
+//
                     Text("\(vm.theTime)")
                         .font(.largeTitle.bold())
                         .padding()
