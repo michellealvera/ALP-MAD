@@ -1,2 +1,6 @@
 
 Pomodoro.xcodeproj/project.xcworkspace/xcuserdata/mac.xcuserdatad/UserInterfaceState.xcuserstate
+Pomodoro/Musics/*
+!Pomodoro/Musics/.gitkeep
+Pomodoro/Assets.xcassets/MusicImage/*
+!Pomodoro/Assets.xcassets/MusicImage/gitplaceholder.dataset/*
