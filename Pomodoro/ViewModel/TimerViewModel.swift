@@ -152,7 +152,7 @@ extension TimerView {
             
             if diff <= 0 {
                 self.isActive = false
-                self.theTime = "0:00"
+                self.theTime = "00:00"
                 self.showingAlert = true
                 
                 self.reset()

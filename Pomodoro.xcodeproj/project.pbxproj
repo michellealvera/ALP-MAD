@@ -120,6 +120,8 @@
 		0401621F2A1C4B6100AB9F53 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				041095892A23B1F200095BC8 /* ViewModel */,
+				0415319E2A1C5BC5000218C4 /* Models */,
 				041531A02A1C5C07000218C4 /* Helpers */,
 				0415319F2A1C5BE3000218C4 /* Views */,
 				040162202A1C4B6100AB9F53 /* PomodoroApp.swift */,
@@ -176,8 +178,6 @@
 		0415319F2A1C5BE3000218C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0415319E2A1C5BC5000218C4 /* Models */,
-				041095892A23B1F200095BC8 /* ViewModel */,
 				041531B02A1C67FE000218C4 /* Timers */,
 				041531AF2A1C67F2000218C4 /* Profile */,
 				041531A32A1C5CAD000218C4 /* MainView.swift */,
