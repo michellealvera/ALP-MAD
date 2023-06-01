@@ -147,6 +147,7 @@ struct TimerView: View {
                     StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
                     .rotationEffect(.init(degrees: -90))
                     .rotationEffect(.init(degrees: reverseRotation))
+                    .animation(.easeInOut(duration: 0.5), value: vm.sessionDuration)
                 
                 
                 // MARK: Hour Text
