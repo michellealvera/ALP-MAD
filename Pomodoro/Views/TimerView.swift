@@ -93,12 +93,14 @@ struct TimerView: View {
             }
             
         }
-//        .onAppear{
-//            self.vm.setup(activeTimer: self.modelData.activeUser.getActiveTimer())
-//        }
         .padding()
         // Moving To Top Without Spacer
         .frame(maxHeight: .infinity, alignment: .top)
+        .onAppear{
+            self.vm.setup(
+                activeTimer: self.modelData.activeUser.getActiveTimer()
+            )
+        }
         
     }
     
@@ -178,8 +180,11 @@ struct TimerView: View {
 }
 
 struct TimerView_Previews: PreviewProvider {
+    static let modelData = ModelData()
+    
     static var previews: some View {
         TimerView()
+            .environmentObject(modelData)
     }
 }
 

@@ -10,11 +10,11 @@ import Foundation
 extension TimerView {
     final class ViewModel: ObservableObject {
         
-        var activeTimer: TimerTasks
+        var activeTimer: TimerTasks = TimerTasks.sampleTimer
 
-        init(theActiveTimer: TimerTasks = TimerTasks.sampleTimer){
-            self.activeTimer = theActiveTimer
-        }
+//        init(theActiveTimer: TimerTasks = TimerTasks.sampleTimer){
+//            self.activeTimer = theActiveTimer
+//        }
         // On hold because we can't get the activeTimer from the View
         
 //        var activeTimer: Timer
@@ -47,7 +47,7 @@ extension TimerView {
         
         // MARK: Circular Slidar Properties
         let originalAngle: Double = 342.0
-        @Published var toAngle: Double = 342
+        @Published var toAngle: Double = 342.0
         let originalProgress = 0.95
         @Published var toProgress: CGFloat = 0.95
         
@@ -69,8 +69,6 @@ extension TimerView {
         
         func pause(){
             self.isActive = false
-            // The time will keep moving even though we don't establish change
-            // We need to reconsider using the Calendar Class.
         }
 
         func reset() {
@@ -169,8 +167,6 @@ extension TimerView {
 //            self.sessionDuration = Double(hours)*3600 + Double(minutes)*60 + seconds
             self.sessionDuration = Double(minutes)*60 + Double(seconds)
             self.theTime = String(format: "%d:%02d", minutes, seconds)
-            
-            
             
         }
         
