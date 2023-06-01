@@ -10,18 +10,10 @@ import Foundation
 
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
-    
-    // General Concept
-    // StartAngle and Start Progress is always 0
-    
-    // The toAngle and toProgress is also fixed if not later removed
-    // It will slowly be reduced
-    
-    // ( CurrentTime / TotalTime ) * 360
-    
+        
     
     // MARK: Clock View Properties
-    var startAngle: Double = 0
+    
     var startProgress: CGFloat = 0
     // Since our to progress is 0.95
     // 0.95 * 360 = 342
@@ -61,8 +53,6 @@ struct TimerView: View {
             SleepTimerSlider()
                 .padding(.top, 50)
             
-            // Refactor and and all isRunning instance to the ViewModal
-            // Includes handling the logic to set running to true and false
             if(vm.isActive){
                 
                 HStack{
@@ -184,32 +174,6 @@ struct TimerView: View {
         screenBounds().width / 1.6)
         
     }
-    
-//    func onDrag(value: DragGesture.Value) {
-        
-        // MARK: Converting Translation into Angle
-//        let vector = CGVector(dx: value.location.x, dy: value.location.y)
-        
-        // Removing the Button Radius
-        // Button Diameter = 30
-        // Radius = 15
-//        let radians = atan2(vector.dy - 15, vector.dx - 15)
-        
-        // 5.96 is full
-        // 0.0 is dead center
-        
-//        let radians = 0.0
-//        // Converting into Angle
-//        var angle = radians * 180 / .pi
-//        if angle < 0{angle = 360 + angle}
-//        // Progress
-//        let progress = angle / 360
-//
-//        // Update To Values
-//        self.toAngle = angle
-//        self.toProgress = progress
-        
-//    }
     
 }
 
