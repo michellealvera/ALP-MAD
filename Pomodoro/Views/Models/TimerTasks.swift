@@ -18,6 +18,7 @@ struct TimerTasks: Identifiable, Hashable {
     var studyDuration: Int
     var studySessions: Int
     var shortBreakDuration: Int
+    var isLongBreakEnabled: Bool
     var longBreakDuration: Int
     
     init(
@@ -27,6 +28,7 @@ struct TimerTasks: Identifiable, Hashable {
         studyDuration: Int,
         studySessions: Int,
         shortBreakDuration: Int,
+        longBreakEnabled: Bool,
         longBreakDuration: Int
     ){
         self.id = id
@@ -35,6 +37,7 @@ struct TimerTasks: Identifiable, Hashable {
         self.studyDuration = studyDuration
         self.studySessions = studySessions
         self.shortBreakDuration = shortBreakDuration
+        self.isLongBreakEnabled = longBreakEnabled
         self.longBreakDuration = longBreakDuration
     }
     
@@ -49,6 +52,7 @@ extension TimerTasks {
         studyDuration: 25,
         studySessions: 2,
         shortBreakDuration: 5,
+        longBreakEnabled: true,
         longBreakDuration: 30
     )
     
@@ -59,6 +63,7 @@ extension TimerTasks {
         studyDuration: 0,
         studySessions: 0,
         shortBreakDuration: 0,
+        longBreakEnabled: false,
         longBreakDuration: 0
     )
     
