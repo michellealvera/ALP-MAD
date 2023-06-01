@@ -46,7 +46,9 @@ extension TimerView {
         }
         
         // MARK: Circular Slidar Properties
+        let originalAngle: Double = 342.0
         @Published var toAngle: Double = 342
+        let originalProgress = 0.95
         @Published var toProgress: CGFloat = 0.95
         
         // Still need to create the logic for repeating the sessions and long breaks
@@ -72,9 +74,13 @@ extension TimerView {
         }
 
         func reset() {
-//            self.sessionDuration = initialTime
             self.isActive = false
+            
             self.theTime = originalTime
+            self.sessionDuration = originalDuration
+            
+            self.toProgress = originalProgress
+            self.toAngle = originalAngle
         }
         
         //
@@ -146,6 +152,9 @@ extension TimerView {
                 self.isActive = false
                 self.theTime = "0:00"
                 self.showingAlert = true
+                
+                self.reset()
+                
                 return
             }
             
