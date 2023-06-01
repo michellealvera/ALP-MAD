@@ -25,8 +25,8 @@ struct TimerView: View {
     var startProgress: CGFloat = 0
     // Since our to progress is 0.95
     // 0.95 * 360 = 342
-    @State var toAngle: Double = 342
-    @State var toProgress: CGFloat = 0.95
+//    @State var toAngle: Double = 342
+//    @State var toProgress: CGFloat = 0.95
     
     
     // MARK: TimerView Properties
@@ -63,19 +63,21 @@ struct TimerView: View {
             
             // Refactor and and all isRunning instance to the ViewModal
             // Includes handling the logic to set running to true and false
-            if(isRunning){
+            if(vm.isActive){
                 
                 HStack{
                     
                     Button("Reset") {
-                        isRunning = false
+                        vm.isActive = false
+                        vm.reset()
                         // Code to set the time to original
                     }.buttonStyle(VioletOutlinedCapsuleButton())
                     
                     Spacer()
                     
                     Button("Pause") {
-                        isRunning = false
+                        vm.isActive = false
+                        
                     }.buttonStyle(VioletFilledCapsuleButton())
                     
                     
@@ -87,7 +89,8 @@ struct TimerView: View {
             } else {
                 
                 Button {
-                    isRunning = true
+                    vm.isActive = true
+                    vm.start()
                 } label: {
                     Text("Start")
                         .font(.headline)
@@ -143,10 +146,10 @@ struct TimerView: View {
                     .stroke(.black.opacity(0.06), lineWidth: 40)
                 
                 // Allowing Reverse Swipping
-                let reverseRotation = (startProgress > toProgress) ? -Double((1 - startProgress) * 360) : 0
+                let reverseRotation = (startProgress > vm.toProgress) ? -Double((1 - startProgress) * 360) : 0
                 
                 Circle()
-                    .trim(from: startProgress > toProgress ? 0 : startProgress, to: toProgress + (-reverseRotation / 360))
+                    .trim(from: startProgress > vm.toProgress ? 0 : startProgress, to: vm.toProgress + (-reverseRotation / 360))
 //                5F2EEA
                     .stroke(GradientHelper.violetFuschiaAngularGradient, style:
                     StrokeStyle(lineWidth: 40, lineCap: .round, lineJoin: .round))
@@ -155,27 +158,26 @@ struct TimerView: View {
                 
                 
                 // MARK: Hour Text
-                VStack(spacing: 6){
+                VStack(spacing: 10){
                     
-//                    Text("\(vm.activeTimer.name)")
-//                        .font(.caption.italic())
-//
+                    Text("\(vm.activeTimer.name)")
+                        .font(.caption.italic())
+                        .padding(.top, -40)
+                                        
+                    
                     Text("\(vm.theTime)")
                         .font(.largeTitle.bold())
-                        .padding()
+                        .padding(.vertical, 2)
                     
-
-//                    Text ("\(getTimeDifference().0)hr")
-//                        .font(.largeTitle.bold())
-//                    Text("\(getTimeDifference().1)min")
-//                        .foregroundColor(.gray)
                 }
+                
                 
             }
             .onReceive(timer) { _ in
                 vm.updateCountDown()
                 // Every second the Timer updates
                 // we will call the updateCountDown function
+                // It should do what the onDrag does
             }
         }
         .frame(width: screenBounds().width / 1.6, height:
@@ -183,7 +185,7 @@ struct TimerView: View {
         
     }
     
-    func onDrag(value: DragGesture.Value) {
+//    func onDrag(value: DragGesture.Value) {
         
         // MARK: Converting Translation into Angle
 //        let vector = CGVector(dx: value.location.x, dy: value.location.y)
@@ -196,18 +198,18 @@ struct TimerView: View {
         // 5.96 is full
         // 0.0 is dead center
         
-        let radians = 0.0
-        // Converting into Angle
-        var angle = radians * 180 / .pi
-        if angle < 0{angle = 360 + angle}
-        // Progress
-        let progress = angle / 360
+//        let radians = 0.0
+//        // Converting into Angle
+//        var angle = radians * 180 / .pi
+//        if angle < 0{angle = 360 + angle}
+//        // Progress
+//        let progress = angle / 360
+//
+//        // Update To Values
+//        self.toAngle = angle
+//        self.toProgress = progress
         
-        // Update To Values
-        self.toAngle = angle
-        self.toProgress = progress
-        
-    }
+//    }
     
 }
 

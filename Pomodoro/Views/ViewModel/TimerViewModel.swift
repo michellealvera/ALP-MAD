@@ -30,19 +30,25 @@ extension TimerView {
             case Long_Break
         }
         
-        // What we need to display
-        // The Literal Number on Screen
-        // Translation to degrees in the view?
-        
+        // MARK: Timer Operations
         @Published var isActive = false
         @Published var showingAlert = false
+        
+        // MARK: Hour:Minute:Second Text
         // Replace this with the users active timer duration
+        let originalTime = "1:25"
         @Published var theTime: String = "1:25"
-        @Published var sessionDuration: Float = 85.0 {
+        let originalDuration: Double = 85.0
+        @Published var sessionDuration: Double = 85.0 {
             didSet {
                 self.theTime = convertToActualTime(timeInSeconds: sessionDuration)
             }
         }
+        
+        // MARK: Circular Slidar Properties
+        @Published var toAngle: Double = 342
+        @Published var toProgress: CGFloat = 0.95
+        
         // Still need to create the logic for repeating the sessions and long breaks
         
         private var initialTime = 0
@@ -58,33 +64,60 @@ extension TimerView {
             let theEndDate = Calendar.current.date(byAdding: .second, value: Int(sessionDuration), to: endDate)!
             self.endDate = theEndDate
         }
+        
+        func pause(){
+            self.isActive = false
+            // The time will keep moving even though we don't establish change
+            // We need to reconsider using the Calendar Class.
+        }
 
         func reset() {
-            self.sessionDuration = Float(initialTime)
+//            self.sessionDuration = initialTime
             self.isActive = false
-            self.theTime = convertToActualTime(timeInSeconds: sessionDuration)
+            self.theTime = originalTime
         }
         
-        func convertToActualTime(timeInSeconds:Float)-> String{
+        //
+        func calculateAngle(recentTime: Double){
+            
+            // 5.96 is full
+            // 0.0 is dead center
+            
+            let radians = (recentTime / originalDuration) * 5.96
+            // Converting into Angle
+            var angle = radians * 180 / .pi
+            if angle < 0{angle = 360 + angle}
+            // Progress
+            let progress = angle / 360
+            
+            // Update To Values
+            self.toAngle = angle
+            self.toProgress = progress
+            
+        }
+        
+        func convertToActualTime(timeInSeconds:Double)-> String{
             
             var theTimeInSeconds = timeInSeconds
             
-            var hours = 0
-            var minutes = 0
-            var seconds = 0
+            var hours = 0.0
+            var minutes = 0.0
+            var seconds = 0.0
+            
+//            calculateAngle(recentTime: theTimeInSeconds)
             
             if(theTimeInSeconds > 3600){
-                hours = Int(theTimeInSeconds / 3600)
-                theTimeInSeconds = theTimeInSeconds - Float(hours)*3600
+                hours = (theTimeInSeconds / 3600).rounded()
+                theTimeInSeconds -= hours*3600
             }
 
             if(theTimeInSeconds > 60) {
-                minutes = Int(theTimeInSeconds / 60)
-                theTimeInSeconds = theTimeInSeconds - Float(minutes)*60
+                minutes = (theTimeInSeconds / 60).rounded()
+                theTimeInSeconds -= minutes*60
             }
             
             if(theTimeInSeconds > 1){
-                seconds = Int(theTimeInSeconds)
+                seconds = theTimeInSeconds
             }
             
             
@@ -115,15 +148,20 @@ extension TimerView {
                 self.showingAlert = true
                 return
             }
+            
+            calculateAngle(recentTime: sessionDuration)
 
             let date = Date(timeIntervalSince1970: diff)
             let calendar = Calendar.current
-            let hours = calendar.component(.hour, from: date)
+//            let hours = calendar.component(.hour, from: date)
             let minutes = calendar.component(.minute, from: date)
             let seconds = calendar.component(.second, from: date)
 
-            self.sessionDuration = Float(minutes)
-            self.theTime = String(format: "%d:%d:%02d", hours, minutes, seconds)
+//            self.sessionDuration = Double(hours)*3600 + Double(minutes)*60 + seconds
+            self.sessionDuration = Double(minutes)*60 + Double(seconds)
+            self.theTime = String(format: "%d:%02d", minutes, seconds)
+            
+            
             
         }
         
