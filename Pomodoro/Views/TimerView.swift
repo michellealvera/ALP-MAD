@@ -11,10 +11,18 @@ import Foundation
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
     
+    // General Concept
+    // StartAngle and Start Progress is always 0
+    
+    // The toAngle and toProgress is also fixed if not later removed
+    // It will slowly be reduced
+    
+    // ( CurrentTime / TotalTime ) * 360
+    
     
     // MARK: Clock View Properties
-    @State var startAngle: Double = 0
-    @State var startProgress: CGFloat = 0
+    var startAngle: Double = 0
+    var startProgress: CGFloat = 0
     // Since our to progress is 0.95
     // 0.95 * 360 = 342
     @State var toAngle: Double = 342
@@ -23,7 +31,7 @@ struct TimerView: View {
     
     // MARK: TimerView Properties
     @EnvironmentObject var modelData: ModelData
-    @StateObject private var vm = ViewModal()
+    @StateObject private var vm = ViewModel()
     private let timer = Timer.publish(every: 1, on: .main, in:
         .common).autoconnect()
     @State var isRunning: Bool = false
@@ -92,6 +100,9 @@ struct TimerView: View {
             }
             
         }
+//        .onAppear{
+//            self.vm.setup(activeTimer: self.modelData.activeUser.getActiveTimer())
+//        }
         .padding()
         // Moving To Top Without Spacer
         .frame(maxHeight: .infinity, alignment: .top)
@@ -143,46 +154,44 @@ struct TimerView: View {
                     .rotationEffect(.init(degrees: reverseRotation))
                 
                 // Slider Buttons
-                Image(systemName: "moon.fill")
-                    .font(.callout)
-                    .foregroundColor(Color("Violet 700"))
-                    .frame(width: 30, height: 30)
-                    .rotationEffect(.init(degrees: 90))
-                    .rotationEffect(.init(degrees: -startAngle))
-                    .background(.white,in: Circle())
-                // Moving To Right & Rotating
-                    .offset(x: width / 2)
+//                Image(systemName: "moon.fill")
+//                    .font(.callout)
+//                    .foregroundColor(Color("Violet 700"))
+//                    .frame(width: 30, height: 30)
+//                    .rotationEffect(.init(degrees: 90))
+//                    .rotationEffect(.init(degrees: -startAngle))
+//                    .background(.white,in: Circle())
+//                // Moving To Right & Rotating
+//                    .offset(x: width / 2)
+//                    .rotationEffect(.init(degrees: startAngle))
+//                    .gesture(
+//                        DragGesture()
+//                            .onChanged ({ value in
+//                                onDrag(value: value, fromSlider: true)
+//                            })
+//                    )
 //                    .rotationEffect(.init(degrees: -90))
-                    .rotationEffect(.init(degrees: startAngle))
-                    .gesture(
-                        DragGesture()
-                            .onChanged ({ value in
-                                onDrag(value: value, fromSlider: true)
-                            })
-                    )
-                    .rotationEffect(.init(degrees: -90))
                 
-                
-                Image(systemName: "alarm")
-                    .font(.callout)
-                    .foregroundColor(Color("Fuschia 700"))
-                    .frame(width: 30, height: 30)
-                // Rotating Image Inside the circle
-                    .rotationEffect(.init(degrees: 90))
-                    .rotationEffect(.init(degrees: -toAngle))
-                    .background(.white, in: Circle())
-                // Moving To Right & Rotating
-                    .offset(x: width / 2) 
+//
+//                Image(systemName: "alarm")
+//                    .font(.callout)
+//                    .foregroundColor(Color("Fuschia 700"))
+//                    .frame(width: 30, height: 30)
+//                // Rotating Image Inside the circle
+//                    .rotationEffect(.init(degrees: 90))
+//                    .rotationEffect(.init(degrees: -toAngle))
+//                    .background(.white, in: Circle())
+//                // Moving To Right & Rotating
+//                    .offset(x: width / 2)
+//                // To the Current Angle
+//                    .rotationEffect(.init(degrees: toAngle))
+//                    .gesture(
+//                        DragGesture()
+//                            .onChanged ({ value in
+//                                onDrag(value: value)
+//                            })
+//                    )
 //                    .rotationEffect(.init(degrees: -90))
-                // To the Current Angle
-                    .rotationEffect(.init(degrees: toAngle))
-                    .gesture(
-                        DragGesture()
-                            .onChanged ({ value in
-                                onDrag(value: value)
-                            })
-                    )
-                    .rotationEffect(.init(degrees: -90))
                 
                 // MARK: Hour Text
                 VStack(spacing: 6){
@@ -195,37 +204,41 @@ struct TimerView: View {
                 }
                 
             }
+            .onReceive(timer) { _ in
+                vm.updateCountDown()
+                // Every second the Timer updates
+                // we will call the updateCountDown function
+            }
         }
         .frame(width: screenBounds().width / 1.6, height:
         screenBounds().width / 1.6)
         
     }
     
-    func onDrag(value: DragGesture.Value, fromSlider: Bool = false) {
+    func onDrag(value: DragGesture.Value) {
         
         // MARK: Converting Translation into Angle
-        let vector = CGVector(dx: value.location.x, dy: value.location.y)
+//        let vector = CGVector(dx: value.location.x, dy: value.location.y)
         
         // Removing the Button Radius
         // Button Diameter = 30
         // Radius = 15
-        let radians = atan2(vector.dy - 15, vector.dx - 15)
+//        let radians = atan2(vector.dy - 15, vector.dx - 15)
+        
+        // 5.96 is full
+        // 0.0 is dead center
+        
+        let radians = 0.0
         // Converting into Angle
         var angle = radians * 180 / .pi
         if angle < 0{angle = 360 + angle}
         // Progress
         let progress = angle / 360
         
-        if fromSlider{
-            // Update From Values
-            self.startAngle = angle
-            self.startProgress = progress
-        }
-        else {
-            // Update To Values
-            self.toAngle = angle
-            self.toProgress = progress
-        }
+        // Update To Values
+        self.toAngle = angle
+        self.toProgress = progress
+
         
     }
     
