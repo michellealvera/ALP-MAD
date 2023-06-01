@@ -10,9 +10,9 @@ import Foundation
 extension TimerView {
     final class ViewModel: ObservableObject {
         
-        var activeTimer: TimerTasks?
+        var activeTimer: TimerTasks
 
-        init(theActiveTimer: TimerTasks = TimerTasks.emptyTimer){
+        init(theActiveTimer: TimerTasks = TimerTasks.sampleTimer){
             self.activeTimer = theActiveTimer
         }
         // On hold because we can't get the activeTimer from the View
