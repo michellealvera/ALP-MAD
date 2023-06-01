@@ -14,6 +14,10 @@ struct User {
     
     func getActiveTimer()->TimerTasks{
         
+        if (timers.count == 1) {
+            return timers[0]
+        }
+        
         return timers.first(where: { $0.isActiveTimer == true } ) ?? TimerTasks.emptyTimer
     }
     
