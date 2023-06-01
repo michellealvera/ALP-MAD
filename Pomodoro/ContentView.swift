@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("showOnboardingPages") var showOnboardingPage: Bool = false
     
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
-        MainView()
+        
+        NavigationStack{
+            VStack{
+                MainView()
+            }
+        }
+        .fullScreenCover(isPresented: $showOnboardingPage,
+             content:{ OnboardingView(
+                showOnboardingPage: $showOnboardingPage)} )
+        
     }
 }
 
