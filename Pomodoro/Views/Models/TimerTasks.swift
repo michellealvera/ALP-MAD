@@ -10,7 +10,7 @@ import Foundation
 // Study
 // Time is stored in minutes
 
-struct Timer: Identifiable, Hashable {
+struct TimerTasks: Identifiable, Hashable {
     
     var id: UUID
     var name: String
@@ -40,10 +40,10 @@ struct Timer: Identifiable, Hashable {
     
 }
 
-extension Timer {
+extension TimerTasks {
     
-    static let sampleTimer: Timer =
-    Timer(
+    static let sampleTimer: TimerTasks =
+    TimerTasks(
         name: "DefaultTimer",
         isActiveTimer: true,
         studyDuration: 25,
@@ -52,8 +52,8 @@ extension Timer {
         longBreakDuration: 30
     )
     
-    static let emptyTimer: Timer =
-    Timer(
+    static let emptyTimer: TimerTasks =
+    TimerTasks(
         name: "EmptyTimer",
         isActiveTimer: false,
         studyDuration: 0,

@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Foundation
 
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
+    
     
     // MARK: Clock View Properties
     @State var startAngle: Double = 0
@@ -21,6 +23,9 @@ struct TimerView: View {
     
     // MARK: TimerView Properties
     @EnvironmentObject var modelData: ModelData
+    @StateObject private var vm = ViewModal()
+    private let timer = TimerTasks.publish(every: 1, on: .main, in:
+        .common).autoconnect()
     @State var isRunning: Bool = false
         
     var body: some View {

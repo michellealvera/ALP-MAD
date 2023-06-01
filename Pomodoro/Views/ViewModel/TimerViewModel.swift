@@ -9,12 +9,19 @@ import Foundation
 
 extension TimerView {
     final class ViewModal: ObservableObject {
+        
+//        var activeTimer: Timer
+        
+        // Help me think
+        // Current Session Type uses Enum, Work / Short Break / Long Break
+        // Current Session Count comes from the timer information
+        
         @Published var isActive = false
         @Published var showingAlert = false
         // Replace this with the users active timer duration
-        @Published var time: String = "5:00"
+        @Published var time: String = "25:00"
         // Still need to create the logic for repeating the sessions and long breaks
-        @Published var minutes: Float = 5.0 {
+        @Published var minutes: Float = 25.0 {
             didSet {
                 self.time = "\(Int(minutes)):00"
             }
@@ -23,8 +30,7 @@ extension TimerView {
         private var initialTime = 0
         private var endDate = Date()
         
-        func start(minutes: Float) {
-            self.initialTime = Int(minutes)
+        func start() {
             self.endDate = Date()
             self.isActive = true
             self.endDate = Calendar.current.date(byAdding: .minute, value: Int(minutes), to: endDate)!

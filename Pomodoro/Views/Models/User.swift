@@ -10,7 +10,7 @@ import Foundation
 struct User {
     
     var name:String
-    var timers:[Timer]
+    var timers:[TimerTasks]
     
     mutating func clearAllTimer(){
         
@@ -18,7 +18,7 @@ struct User {
         self.timers.removeAll()
     }
     
-    init(name username:String, timers: [Timer]){
+    init(name username:String, timers: [TimerTasks]){
         self.name = username
         self.timers = timers
     }
@@ -31,7 +31,7 @@ extension User {
     static let sampleUser: User =
     User(
         name: "DefaultName",
-        timers: [Timer.sampleTimer]
+        timers: [TimerTasks.sampleTimer]
     )
     
 }
