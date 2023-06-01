@@ -8,7 +8,14 @@
 import Foundation
 
 extension TimerView {
-    final class ViewModal: ObservableObject {
+    final class ViewModel: ObservableObject {
+        
+        var activeTimer: TimerTasks?
+
+        init(theActiveTimer: TimerTasks = TimerTasks.emptyTimer){
+            self.activeTimer = theActiveTimer
+        }
+        // On hold because we can't get the activeTimer from the View
         
 //        var activeTimer: Timer
         
@@ -27,9 +34,6 @@ extension TimerView {
         // The Literal Number on Screen
         // Translation to degrees in the view?
         
-        let longBreakDuration = 180.0 // 3 Minutes
-        var isLongBreakEnabled = false // get from User Timer
-        
         @Published var isActive = false
         @Published var showingAlert = false
         // Replace this with the users active timer duration
@@ -44,10 +48,14 @@ extension TimerView {
         private var initialTime = 0
         private var endDate = Date()
         
+        func setup(activeTimer: TimerTasks){
+            self.activeTimer = activeTimer
+        }
+        
         func start() {
             self.endDate = Date()
             self.isActive = true
-            var theEndDate = Calendar.current.date(byAdding: .second, value: Int(sessionDuration), to: endDate)!
+            let theEndDate = Calendar.current.date(byAdding: .second, value: Int(sessionDuration), to: endDate)!
             self.endDate = theEndDate
         }
 
@@ -110,11 +118,12 @@ extension TimerView {
 
             let date = Date(timeIntervalSince1970: diff)
             let calendar = Calendar.current
+            let hours = calendar.component(.hour, from: date)
             let minutes = calendar.component(.minute, from: date)
             let seconds = calendar.component(.second, from: date)
 
             self.sessionDuration = Float(minutes)
-            self.theTime = String(format: "%d:%02d", minutes, seconds)
+            self.theTime = String(format: "%d:%d:%02d", hours, minutes, seconds)
             
         }
         
