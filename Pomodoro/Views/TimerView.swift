@@ -48,6 +48,7 @@ struct TimerView: View {
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
             }
             
             SleepTimerSlider()
