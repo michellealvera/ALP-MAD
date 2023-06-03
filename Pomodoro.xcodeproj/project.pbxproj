@@ -25,8 +25,6 @@
 		041531A82A1C5D22000218C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531A72A1C5D22000218C4 /* User.swift */; };
 		041531AA2A1C5D2B000218C4 /* TimerTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531A92A1C5D2B000218C4 /* TimerTasks.swift */; };
 		041531AE2A1C67E5000218C4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531AD2A1C67E5000218C4 /* ProfileView.swift */; };
-		046629B62A29991900569AD2 /* music-411Ψ892.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046629B42A29991900569AD2 /* music-411Ψ892.mp3 */; };
-		046629B72A29991900569AD2 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046629B52A29991900569AD2 /* music-mystique.mp3 */; };
 		04ACE3BC2A233F3100230D3B /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BB2A233F3100230D3B /* TasksView.swift */; };
 		04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BD2A23879800230D3B /* GradientHelper.swift */; };
 		04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BF2A2388F800230D3B /* ModelData.swift */; };
@@ -36,6 +34,9 @@
 		25243BA22A28E9C800E45F17 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 25243BA12A28E9C800E45F17 /* Subsonic */; };
 		25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */; };
 		25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */; };
+		254D5C952A2B35C100DDC469 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C922A2B35C100DDC469 /* .gitkeep */; };
+		254D5C962A2B35C100DDC469 /* music-411Ψ892.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C932A2B35C100DDC469 /* music-411Ψ892.mp3 */; };
+		254D5C972A2B35C100DDC469 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C942A2B35C100DDC469 /* music-mystique.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +78,6 @@
 		041531A72A1C5D22000218C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		041531A92A1C5D2B000218C4 /* TimerTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTasks.swift; sourceTree = "<group>"; };
 		041531AD2A1C67E5000218C4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		046629B42A29991900569AD2 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
-		046629B52A29991900569AD2 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
 		04ACE3BB2A233F3100230D3B /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		04ACE3BD2A23879800230D3B /* GradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHelper.swift; sourceTree = "<group>"; };
 		04ACE3BF2A2388F800230D3B /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -87,6 +86,9 @@
 		25243B9C2A28E93400E45F17 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
+		254D5C922A2B35C100DDC469 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		254D5C932A2B35C100DDC469 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
+		254D5C942A2B35C100DDC469 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +140,7 @@
 		0401621F2A1C4B6100AB9F53 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
-				25243B9B2A28E8F200E45F17 /* Musics */,
+				254D5C912A2B35C100DDC469 /* Musics */,
 				041095892A23B1F200095BC8 /* ViewModel */,
 				0415319E2A1C5BC5000218C4 /* Models */,
 				041531A02A1C5C07000218C4 /* Helpers */,
@@ -246,15 +248,6 @@
 			path = Timers;
 			sourceTree = "<group>";
 		};
-		25243B9B2A28E8F200E45F17 /* Musics */ = {
-			isa = PBXGroup;
-			children = (
-				046629B42A29991900569AD2 /* music-411Ψ892.mp3 */,
-				046629B52A29991900569AD2 /* music-mystique.mp3 */,
-			);
-			path = Musics;
-			sourceTree = "<group>";
-		};
 		25243BA52A28F9A100E45F17 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +255,16 @@
 				25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */,
 			);
 			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
+		254D5C912A2B35C100DDC469 /* Musics */ = {
+			isa = PBXGroup;
+			children = (
+				254D5C922A2B35C100DDC469 /* .gitkeep */,
+				254D5C932A2B35C100DDC469 /* music-411Ψ892.mp3 */,
+				254D5C942A2B35C100DDC469 /* music-mystique.mp3 */,
+			);
+			path = Musics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,10 +377,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				254D5C952A2B35C100DDC469 /* .gitkeep in Resources */,
+				254D5C972A2B35C100DDC469 /* music-mystique.mp3 in Resources */,
 				040162282A1C4B6300AB9F53 /* Preview Assets.xcassets in Resources */,
-				046629B62A29991900569AD2 /* music-411Ψ892.mp3 in Resources */,
+				254D5C962A2B35C100DDC469 /* music-411Ψ892.mp3 in Resources */,
 				040162252A1C4B6300AB9F53 /* Assets.xcassets in Resources */,
-				046629B72A29991900569AD2 /* music-mystique.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
