@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct User: Codable {
     
     var name:String
     var timers:[TimerTasks]
@@ -36,10 +36,10 @@ struct User {
 
 
 extension User {
-
+    
     static let sampleUser: User =
     User(
-        name: "DefaultName",
+        name: " ",
         timers: [TimerTasks.sampleTimer]
     )
     

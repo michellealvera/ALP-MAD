@@ -82,6 +82,7 @@ extension MusicPlayerView {
         // a helper function to load the bundle
         // and assign the delegate to this viewModel
         func loadBundle() -> Void {
+            
             let sound = Bundle.main.path(
                 forResource: currentMusic.audio,
                 ofType: "mp3"
@@ -97,62 +98,21 @@ extension MusicPlayerView {
         func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
             print("Music is finished, playing another song...")
             
-            self.audioPlayer.pause()
-            self.audioPlayer.currentTime = 0
-            
             // Check if all song has already been played
             if Music.availableMusics.count == playedMusic.count {
-                
                 print("Playlist is exhausted. playing all the song from again!")
-                
-                // reset the played music and select a random music
                 playedMusic = []
-                
-                withAnimation {
-                    currentMusic = Music.availableMusics.randomElement()!
-                }
-                
             } else {
-                
                 print("There's still music on the playlist, selecting a random music!")
-                
-                // holds all of the unplayed song temporarily
-                var musicListCopy: [Music] = []
-                
-                // get every unplayed music from the main playlist
-                // and append them to the music list copy
-                Music.availableMusics.forEach{ music in
-                    if !playedMusic.contains(music.id) {
-                        musicListCopy.append(music)
-                    }
-                }
-                
-                withAnimation {
-                    // Get random element and append select it as a music to be played
-                    self.currentMusic = musicListCopy.randomElement()!
-                }
-                
             }
             
-            // remove the selected music from the playlist
-            // as it's already played
-            playedMusic.append(currentMusic.id)
-            
-            forwards = true
-            
-            withAnimation {
-                self.loadBundle()
-                self.progress = 0.0
-                self.audioPlayer.play()
-            }
-            
+            playRandomSong()
             
         }
         
         // function to seek playback to the start
         func resetToStartPlayback() -> Void {
-            withAnimation(.linear) {
-                
+            withAnimation(.easeOut) {
                 if self.isPlaying {
                     self.displayLink!.isPaused = true
                     self.audioPlayer.pause()
@@ -196,20 +156,28 @@ extension MusicPlayerView {
             // Get the last played song from the queue and set it as the current song
             if let lastPlayedSongId = playedMusic.last {
                 if let lastPlayedSong = Music.availableMusics.first(where: { $0.id == lastPlayedSongId }) {
-                    
-                    
-                   
                     forwards = false
-                    withAnimation {
-                        currentMusic = lastPlayedSong
-                        self.loadBundle()
-                        self.progress = 0.0
-                        self.audioPlayer.play()
-                    }
-                    
-                    
+                    play(music: lastPlayedSong)
                 }
             }
+        }
+        
+        func playRandomSong() -> Void {
+            // Holds all of the unplayed songs temporarily
+            var unplayedMusic: [Music] = []
+            
+            // Get every unplayed song from the main playlist
+            // and append them to the unplayed music list
+            Music.availableMusics.forEach { music in
+                if !playedMusic.contains(music.id) {
+                    unplayedMusic.append(music)
+                }
+            }
+            
+            forwards = true
+            let selectedMusic = unplayedMusic.randomElement()!
+            self.playedMusic.append(selectedMusic.id)
+            play(music: selectedMusic)
         }
         
         // Function to go to the next song
@@ -221,34 +189,20 @@ extension MusicPlayerView {
                 playedMusic = []
             }
             
-            // Holds all of the unplayed songs temporarily
-            var unplayedMusic: [Music] = []
-            // Get every unplayed song from the main playlist
-            // and append them to the unplayed music list
-            Music.availableMusics.forEach { music in
-                if !playedMusic.contains(music.id) {
-                    unplayedMusic.append(music)
-                }
-            }
+            playRandomSong()
             
+        }
+        
+        // Play the music
+        func play(music: Music) -> Void{
             withAnimation {
-                // Select a random song from the unplayed list
-                currentMusic = unplayedMusic.randomElement()!
-            }
-            
-            // Add the selected song to the playedMusic queue
-            playedMusic.append(currentMusic.id)
-            
-            
-            forwards = true
-            withAnimation {
+                currentMusic = music
                 loadBundle()
                 progress = 0.0
                 self.audioPlayer.play()
                 self.isPlaying = true
             }
         }
-        
     }
 }
 

@@ -42,7 +42,7 @@ struct TimerView: View {
                         .font(.title.bold())
                         .foregroundColor(.black)
                     // Replace this with current users name
-                    + Text("Marcell")
+                    + Text(modelData.activeUser.name)
                         .font(.title.bold())
                         .foregroundColor(Color("Violet 500"))
                     
@@ -93,7 +93,7 @@ struct TimerView: View {
                 
             }
             
-
+            
             
             Spacer()
             MusicPlayerView()

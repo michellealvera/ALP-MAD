@@ -19,9 +19,12 @@ struct ContentView: View {
                 MainView()
             }
         }
-        .fullScreenCover(isPresented: $showOnboardingPage,
-             content:{ OnboardingView(
-                showOnboardingPage: $showOnboardingPage)} )
+        .fullScreenCover(
+            isPresented: Binding(get: { !modelData.finishedOnboarding }, set: {_ in }),
+            content: {
+                OnboardingView()
+            }
+        )
         
     }
 }
