@@ -10,7 +10,7 @@ import Foundation
 // Study
 // Time is stored in seconds
 
-struct TimerTasks: Identifiable, Hashable {
+struct TimerTasks: Identifiable, Hashable, Codable {
     
     // Duration is the time
     // Session is the number of times the duration will happen

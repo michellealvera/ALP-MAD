@@ -23,5 +23,5 @@ struct SymbolHelper {
     let more = "ellipsis"
     let add = "plus.circle.fill"
     let next = "arrow.forward"
-    
+    let arrowRight = "arrow.right"
 }
