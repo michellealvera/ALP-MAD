@@ -89,10 +89,10 @@ extension TimerView {
                     name: "DefaultTimer",
                     isActiveTimer: true,
                     studyDuration: 2,
-                    studySessions: 4,
+                    studySessions: 2,
                     shortBreakDuration: 1,
-                    longBreakEnabled: false,
-                    longBreakDuration: 0
+                    longBreakEnabled: true,
+                    longBreakDuration: 3
                 )
                 
             } else {
@@ -166,6 +166,8 @@ extension TimerView {
                 }
                 
             } else if (currentSession == sessionType.Long_Break) {
+                
+                batchSetTime(theMinutes: Double(activeTimer.studyDuration))
                 self.reset()
                 currentSession = sessionType.Work
             }
