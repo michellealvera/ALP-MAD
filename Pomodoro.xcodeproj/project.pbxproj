@@ -28,15 +28,15 @@
 		25243B9D2A28E93400E45F17 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243B9C2A28E93400E45F17 /* Music.swift */; };
 		25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */; };
 		25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */; };
-		254D5C952A2B35C100DDC469 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C922A2B35C100DDC469 /* .gitkeep */; };
-		254D5C962A2B35C100DDC469 /* music-411Ψ892.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C932A2B35C100DDC469 /* music-411Ψ892.mp3 */; };
-		254D5C972A2B35C100DDC469 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C942A2B35C100DDC469 /* music-mystique.mp3 */; };
 		254D5C992A2B3FF400DDC469 /* AppStorageJsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5C982A2B3FF400DDC469 /* AppStorageJsonHelper.swift */; };
 		254D5C9C2A2B485800DDC469 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5C9B2A2B485800DDC469 /* OnboardingView.swift */; };
 		254D5CA02A2B554500DDC469 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5C9F2A2B554500DDC469 /* OnboardingViewModel.swift */; };
 		256B574E2A2E21AD00C2E863 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 256B574D2A2E21AD00C2E863 /* Realm */; };
 		256B57502A2E21AD00C2E863 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 256B574F2A2E21AD00C2E863 /* RealmSwift */; };
 		256B57522A2E23B300C2E863 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256B57512A2E23B300C2E863 /* Preference.swift */; };
+		256B57582A2E3A8300C2E863 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 256B57572A2E3A8300C2E863 /* .gitkeep */; };
+		256B575B2A2E3AE600C2E863 /* music-411Ψ892.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 256B57592A2E3AE600C2E863 /* music-411Ψ892.mp3 */; };
+		256B575C2A2E3AE600C2E863 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 256B575A2A2E3AE600C2E863 /* music-mystique.mp3 */; };
 		25785C5A2A2CD77300D45C91 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25785C592A2CD77300D45C91 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,13 +82,13 @@
 		25243B9C2A28E93400E45F17 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
-		254D5C922A2B35C100DDC469 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		254D5C932A2B35C100DDC469 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
-		254D5C942A2B35C100DDC469 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
 		254D5C982A2B3FF400DDC469 /* AppStorageJsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageJsonHelper.swift; sourceTree = "<group>"; };
 		254D5C9B2A2B485800DDC469 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		254D5C9F2A2B554500DDC469 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		256B57512A2E23B300C2E863 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		256B57572A2E3A8300C2E863 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitkeep; path = ../../../../Downloads/msuxic/Musics/.gitkeep; sourceTree = "<group>"; };
+		256B57592A2E3AE600C2E863 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
+		256B575A2A2E3AE600C2E863 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
 		25785C592A2CD77300D45C91 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -253,9 +253,9 @@
 		254D5C912A2B35C100DDC469 /* Musics */ = {
 			isa = PBXGroup;
 			children = (
-				254D5C922A2B35C100DDC469 /* .gitkeep */,
-				254D5C932A2B35C100DDC469 /* music-411Ψ892.mp3 */,
-				254D5C942A2B35C100DDC469 /* music-mystique.mp3 */,
+				256B57592A2E3AE600C2E863 /* music-411Ψ892.mp3 */,
+				256B575A2A2E3AE600C2E863 /* music-mystique.mp3 */,
+				256B57572A2E3A8300C2E863 /* .gitkeep */,
 			);
 			path = Musics;
 			sourceTree = "<group>";
@@ -380,11 +380,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				254D5C952A2B35C100DDC469 /* .gitkeep in Resources */,
-				254D5C972A2B35C100DDC469 /* music-mystique.mp3 in Resources */,
 				040162282A1C4B6300AB9F53 /* Preview Assets.xcassets in Resources */,
-				254D5C962A2B35C100DDC469 /* music-411Ψ892.mp3 in Resources */,
+				256B575C2A2E3AE600C2E863 /* music-mystique.mp3 in Resources */,
 				040162252A1C4B6300AB9F53 /* Assets.xcassets in Resources */,
+				256B575B2A2E3AE600C2E863 /* music-411Ψ892.mp3 in Resources */,
+				256B57582A2E3A8300C2E863 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

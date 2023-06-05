@@ -12,9 +12,9 @@ struct ProfileView: View {
     
     
     @StateObject var vm: ViewModel = ViewModel()
-  
     
     @Environment(\.realm) var realm
+    
     
     @ObservedResults(
         Preference.self,
@@ -58,9 +58,15 @@ struct ProfileView: View {
             }
             
             
-            Button("Log out") {
+            Section(header: Text("Danger Zone")) {
+                Button("Clear timer") {
+                    
+                }.foregroundColor(.red)
                 
-            }.foregroundColor(.red)
+                Button("Reset application data") {
+                    
+                }.foregroundColor(.red)
+            }
             
         }
         .navigationTitle("Profile")
@@ -71,6 +77,7 @@ struct ProfileView_Previews: PreviewProvider {
     
     static var previews: some View {
         ProfileView()
-          
+            .environment(\.realm, Preference.previewRealm)
+        
     }
 }
