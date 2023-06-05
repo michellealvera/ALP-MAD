@@ -14,6 +14,8 @@
 		040162322A1C4B6300AB9F53 /* PomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040162312A1C4B6300AB9F53 /* PomodoroTests.swift */; };
 		0401623C2A1C4B6300AB9F53 /* PomodoroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401623B2A1C4B6300AB9F53 /* PomodoroUITests.swift */; };
 		0401623E2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401623D2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift */; };
+		0401B74F2A2D882A000416A7 /* TasksItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401B74E2A2D882A000416A7 /* TasksItemView.swift */; };
+		0401B7512A2DBA34000416A7 /* TasksDialogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401B7502A2DBA34000416A7 /* TasksDialogSheet.swift */; };
 		040259B82A28BECD0050F1B4 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040259B72A28BECD0050F1B4 /* ProfileCardView.swift */; };
 		040313932A25954700A30A12 /* MultipickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040313922A25954700A30A12 /* MultipickerView.swift */; };
 		041095862A239F6300095BC8 /* ExperimentalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041095852A239F6300095BC8 /* ExperimentalTimerView.swift */; };
@@ -69,6 +71,8 @@
 		040162372A1C4B6300AB9F53 /* PomodoroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0401623B2A1C4B6300AB9F53 /* PomodoroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITests.swift; sourceTree = "<group>"; };
 		0401623D2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0401B74E2A2D882A000416A7 /* TasksItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksItemView.swift; sourceTree = "<group>"; };
+		0401B7502A2DBA34000416A7 /* TasksDialogSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDialogSheet.swift; sourceTree = "<group>"; };
 		040259B72A28BECD0050F1B4 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		040313922A25954700A30A12 /* MultipickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipickerView.swift; sourceTree = "<group>"; };
 		041095852A239F6300095BC8 /* ExperimentalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalTimerView.swift; sourceTree = "<group>"; };
@@ -182,6 +186,15 @@
 			path = PomodoroUITests;
 			sourceTree = "<group>";
 		};
+		0401B74D2A2D8815000416A7 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				0401B74E2A2D882A000416A7 /* TasksItemView.swift */,
+				0401B7502A2DBA34000416A7 /* TasksDialogSheet.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
 		041095892A23B1F200095BC8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +217,7 @@
 		0415319F2A1C5BE3000218C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0401B74D2A2D8815000416A7 /* Tasks */,
 				254D5C9A2A2B484500DDC469 /* Onboarding */,
 				25243BA52A28F9A100E45F17 /* MusicPlayer */,
 				041531B02A1C67FE000218C4 /* Timers */,
@@ -426,7 +440,9 @@
 				041531AA2A1C5D2B000218C4 /* TimerTasks.swift in Sources */,
 				041095862A239F6300095BC8 /* ExperimentalTimerView.swift in Sources */,
 				25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */,
+				0401B74F2A2D882A000416A7 /* TasksItemView.swift in Sources */,
 				254D5CA02A2B554500DDC469 /* OnboardingViewModel.swift in Sources */,
+				0401B7512A2DBA34000416A7 /* TasksDialogSheet.swift in Sources */,
 				041531A82A1C5D22000218C4 /* User.swift in Sources */,
 				04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */,
 				040162232A1C4B6100AB9F53 /* ContentView.swift in Sources */,
