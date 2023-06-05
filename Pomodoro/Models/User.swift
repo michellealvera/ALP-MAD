@@ -40,7 +40,10 @@ extension User {
     static let sampleUser: User =
     User(
         name: " ",
-        timers: [TimerTasks.sampleTimer]
+        timers: [
+            TimerTasks.sampleTimer,
+            TimerTasks.emptyTimer
+        ]
     )
     
 }
