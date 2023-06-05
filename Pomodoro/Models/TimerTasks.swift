@@ -50,6 +50,14 @@ struct TimerTasks: Identifiable, Hashable, Codable {
         self.longBreakDuration = longBreakDuration
     }
     
+    mutating func toggleToNonActive(){
+        self.isActiveTimer = false
+    }
+    
+    mutating func toggleToActive(){
+        self.isActiveTimer = true
+    }
+    
 }
 
 extension TimerTasks {
