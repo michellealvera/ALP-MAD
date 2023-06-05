@@ -185,9 +185,16 @@ struct TimerView: View {
                         .padding(.vertical, 2)
                     
                     
-                    Text("\(vm.lapsedSession) Session Done")
-                        .font(.caption)
-                        .padding(.top, -10)
+                    if (!(vm.currentSession == sessionType.Long_Break)) {
+                        Text("\(vm.lapsedSession) Session Done")
+                            .font(.caption)
+                            .padding(.top, -10)
+                        
+                    } else {
+                        Text("Long Break Session")
+                            .font(.caption)
+                            .padding(.top, -10)
+                    }
                     
                 }
                 

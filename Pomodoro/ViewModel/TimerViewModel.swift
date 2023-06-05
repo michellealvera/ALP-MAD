@@ -85,25 +85,17 @@ extension TimerView {
 
             // Retrieve all objects of the Timer model class that match the predicate
             if let retrievedTimer = realm.objects(TimerTask.self).filter(predicate).first {
-                self.activeTimer = TimerTask(
-                    name: "DefaultTimer",
-                    isActiveTimer: true,
-                    studyDuration: 2,
-                    studySessions: 2,
-                    shortBreakDuration: 1,
-                    longBreakEnabled: true,
-                    longBreakDuration: 3
-                )
+                self.activeTimer = retrievedTimer
                 
             } else {
                 self.activeTimer = TimerTask(
                     name: "DefaultTimer",
                     isActiveTimer: true,
-                    studyDuration: 1,
+                    studyDuration: 2,
                     studySessions: 4,
                     shortBreakDuration: 1,
-                    longBreakEnabled: false,
-                    longBreakDuration: 0
+                    longBreakEnabled: true,
+                    longBreakDuration: 3
                 )
             }
             
@@ -136,6 +128,8 @@ extension TimerView {
             
             self.toProgress = originalProgress
             self.toAngle = originalAngle
+            
+            self.lapsedSession = 0
         }
         
         func determineNextAction(){
