@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct TasksItemView: View {
+    
+    
         
-    var theTimerTask: TimerTasks
+    var theTimerTask: TimerTask
     @State var shownSheet: Bool = false
     
     var body: some View {
@@ -45,7 +47,9 @@ struct TasksItemView: View {
                     }
 
                 }.sheet(isPresented: $shownSheet){
-                    TasksDialogSheet(shownSheet: $shownSheet, theUUID: theTimerTask.id)
+                    TasksDialogSheet(shownSheet: $shownSheet
+//                                     theUUID: theTimerTask.id
+                    )
                         .presentationDetents([.fraction(0.20)])
                         .presentationDragIndicator(.visible)
                 }
@@ -101,31 +105,31 @@ struct TasksItemView: View {
         
     }
     
-    func toggleToNonActive(timerTask: inout TimerTasks) {
-        timerTask.isActiveTimer = false
-    }
-    
-    func toggleToActive(timerTask: inout TimerTasks) {
-        timerTask.isActiveTimer = true
-    }
-    
+//    func toggleToNonActive(timerTask: inout TimerTasks) {
+//        timerTask.isActiveTimer = false
+//    }
+//
+//    func toggleToActive(timerTask: inout TimerTasks) {
+//        timerTask.isActiveTimer = true
+//    }
+//
     
 }
 
 struct TasksItemView_Previews: PreviewProvider {
     
-    static var sampleTimer = TimerTasks.sampleTimer
-    static var emptyTimer = TimerTasks.emptyTimer
+//    static var sampleTimer = TimerTask.sampleTimer
+//    static var emptyTimer = TimerTask.emptyTimer
 //    @State static var activeTimerUUID = TimerTasks.sampleTimer.id
     
     static var previews: some View {
         VStack(){
             
-            TasksItemView(
-                theTimerTask: sampleTimer)
-            
-            TasksItemView(
-                theTimerTask: emptyTimer)
+//            TasksItemView(
+//                theTimerTask: sampleTimer)
+//            
+//            TasksItemView(
+//                theTimerTask: emptyTimer)
             
         }
 

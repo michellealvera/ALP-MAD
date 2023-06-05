@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct TasksDialogSheet: View {
     
-    @EnvironmentObject var modelData:ModelData
+    @Environment(\.realm) var realm
     
     @Binding var shownSheet: Bool
-    var theUUID: UUID
+//    var theUUID: UUID
     
     var body: some View {
         
@@ -43,7 +44,8 @@ struct TasksDialogSheet: View {
                 Button {
                     
                     shownSheet.toggle()
-                    modelData.activeUser.setTimerAsActive(theID: theUUID)
+                    // MARK: Come back here!
+//                    modelData.activeUser.setTimerAsActive(theID: theUUID)
                     
                 } label: {
                     Text("Set Active")
@@ -68,12 +70,13 @@ struct TasksDialogSheet: View {
 struct TasksDialogSheet_Previews: PreviewProvider {
     
     @State static var shownSheet: Bool = true
-    @State static var activeTimerUUID = TimerTasks.sampleTimer.id
+//    @State static var activeTimerUUID = TimerTasks.sampleTimer.id
     
     static var previews: some View {
         TasksDialogSheet(
-            shownSheet: $shownSheet,
-            theUUID: activeTimerUUID
+            shownSheet: $shownSheet
+//            theUUID: activeTimerUUID
         )
+        .environment(\.realm, TimerTask.previewRealm)
     }
 }

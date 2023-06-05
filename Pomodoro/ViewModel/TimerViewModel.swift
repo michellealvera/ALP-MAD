@@ -17,7 +17,7 @@ enum sessionType {
 extension TimerView {
     final class ViewModel: ObservableObject {
         
-        var activeTimer: TimerTasks = TimerTasks.sampleTimer
+//        var activeTimer: TimerTask = TimerTask.sampleTimer
         
         // MARK: Timer Operations
         @Published var isActive = false
@@ -69,9 +69,10 @@ extension TimerView {
         }
         
         
-        func setup(activeTimer: TimerTasks){
-            self.activeTimer = activeTimer
-        }
+        // FIXME: Timer Problem
+//        func setup(activeTimer: TimerTask){
+//            self.activeTimer = activeTimer
+//        }
         
         func start() {
             self.endDate = Date()

@@ -165,9 +165,10 @@ struct TimerView: View {
                 // MARK: Hour Text
                 VStack(spacing: 10){
                     
-                    Text("\(vm.activeTimer.name)")
-                        .font(.caption.italic())
-                        .padding(.top, -40)
+                    // FIXME: TimerIssue
+//                    Text("\(vm.activeTimer.name)")
+//                        .font(.caption.italic())
+//                        .padding(.top, -40)
                     
                     
                     Text("\(vm.theTime)")
