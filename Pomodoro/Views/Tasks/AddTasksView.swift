@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddTimerView: View {
+struct AddTasksView: View {
     
     // MARK: States
     @State var quantity: Int = 10
@@ -68,6 +68,6 @@ struct AddTimerView: View {
 
 struct AddTimerView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTimerView()
+        AddTasksView()
     }
 }
