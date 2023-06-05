@@ -9,13 +9,11 @@ import SwiftUI
 import RealmSwift
 
 struct TasksView: View {
-    
     @Environment(\.realm) var realm
-    
     @ObservedResults(
         TimerTask.self
     ) var allTimers
-        
+    
     var body: some View {
         NavigationStack {
             
@@ -27,11 +25,11 @@ struct TasksView: View {
                         VStack{
                             
                             ForEach(allTimers){ timerTasks in
+                                Text(timerTasks.name)
                                 
-                                TasksItemView(
-                                    theTimerTask: timerTasks
-                                    // activeTimerUUID: $activeTimerUUID
-                                )
+//                                TasksItemView(
+//                                    theTimerTask: timerTasks
+//                                )
                             }
                         }
                         
@@ -64,9 +62,9 @@ struct TasksView: View {
             } //ZStack
             
         }
-//        .onAppear{
-//            self.activeTimerUUID = modelData.activeUser.getActiveTimer().id
-//        }
+        //        .onAppear{
+        //            self.activeTimerUUID = modelData.activeUser.getActiveTimer().id
+        //        }
         
     }
 }
@@ -75,6 +73,6 @@ struct TasksView_Previews: PreviewProvider {
     
     static var previews: some View {
         TasksView()
-            .environment(\.realm, Preference.previewRealm)
+            .environment(\.realm, PreviewRealm.preview)
     }
 }

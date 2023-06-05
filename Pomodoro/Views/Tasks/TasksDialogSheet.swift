@@ -77,6 +77,6 @@ struct TasksDialogSheet_Previews: PreviewProvider {
             shownSheet: $shownSheet
 //            theUUID: activeTimerUUID
         )
-        .environment(\.realm, TimerTask.previewRealm)
+        .environment(\.realm, PreviewRealm.preview)
     }
 }

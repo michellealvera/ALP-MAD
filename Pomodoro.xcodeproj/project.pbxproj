@@ -44,6 +44,7 @@
 		256B57582A2E3A8300C2E863 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		256B575B2A2E3AE600C2E863 /* music-411Ψ892.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 256B57592A2E3AE600C2E863 /* music-411Ψ892.mp3 */; };
 		256B575C2A2E3AE600C2E863 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 256B575A2A2E3AE600C2E863 /* music-mystique.mp3 */; };
+		256B575E2A2E668D00C2E863 /* PreviewRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256B575D2A2E668D00C2E863 /* PreviewRealm.swift */; };
 		25785C5A2A2CD77300D45C91 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25785C592A2CD77300D45C91 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		256B57512A2E23B300C2E863 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		256B57592A2E3AE600C2E863 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
 		256B575A2A2E3AE600C2E863 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
+		256B575D2A2E668D00C2E863 /* PreviewRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRealm.swift; sourceTree = "<group>"; };
 		25785C592A2CD77300D45C91 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +221,7 @@
 				041531A92A1C5D2B000218C4 /* TimerTasks.swift */,
 				25243B9C2A28E93400E45F17 /* Music.swift */,
 				256B57512A2E23B300C2E863 /* Preference.swift */,
+				256B575D2A2E668D00C2E863 /* PreviewRealm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				040313932A25954700A30A12 /* MultipickerView.swift in Sources */,
 				25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */,
 				04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */,
+				256B575E2A2E668D00C2E863 /* PreviewRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

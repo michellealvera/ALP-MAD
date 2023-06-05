@@ -77,7 +77,7 @@ struct ProfileView_Previews: PreviewProvider {
     
     static var previews: some View {
         ProfileView()
-            .environment(\.realm, Preference.previewRealm)
+            .environment(\.realm, PreviewRealm.preview)
         
     }
 }
