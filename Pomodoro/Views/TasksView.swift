@@ -9,7 +9,13 @@ import SwiftUI
 
 struct TasksView: View {
     
-    @EnvironmentObject private var modelData: ModelData
+    @Environment(\.realm) var realm
+    
+    @ObservedResults(
+        Preference.self,
+        where: { $0.key == "username" }
+    ) var username
+    
 //    @State private var activeTimerUUID: UUID = UUID()
 //    {
 //        didSet {
@@ -79,10 +85,8 @@ struct TasksView: View {
 
 struct TasksView_Previews: PreviewProvider {
     
-    static private let modelData = ModelData()
-    
     static var previews: some View {
         TasksView()
-            .environmentObject(modelData)
+            .environment(\.realm, Preference.previewRealm)
     }
 }
