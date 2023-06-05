@@ -27,6 +27,24 @@ struct User: Codable {
         self.timers.removeAll()
     }
     
+    func setTimerAsActive(theID: UUID) {
+        
+        // Find the previous active timer and then make it false
+        
+        if var oldActiveTimer = self.timers.first(where: {$0.isActiveTimer}) {
+            oldActiveTimer.isActiveTimer = false
+        } 
+        
+        // Get the tTimer according to the UUID and make it true
+        
+        if var newActiveTimer = self.timers.first(where: {$0.id == theID}) {
+            newActiveTimer.isActiveTimer = true
+        } else {
+            return
+        }
+        
+    }
+    
     init(name username:String, timers: [TimerTasks]){
         self.name = username
         self.timers = timers
