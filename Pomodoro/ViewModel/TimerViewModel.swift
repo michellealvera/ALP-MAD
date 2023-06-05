@@ -6,40 +6,33 @@
 //
 
 import Foundation
+import Combine
+
+enum sessionType {
+    case Work
+    case Short_Break
+    case Long_Break
+}
 
 extension TimerView {
     final class ViewModel: ObservableObject {
         
         var activeTimer: TimerTasks = TimerTasks.sampleTimer
-
-//        init(theActiveTimer: TimerTasks = TimerTasks.sampleTimer){
-//            self.activeTimer = theActiveTimer
-//        }
-        // On hold because we can't get the activeTimer from the View
-        
-//        var activeTimer: Timer
-        
-        // Help me think
-        // CurrentSessionType uses Enum, Work / Short Break / Long Break
-        // CurrentSessionCount comes from the timer information
-        // CurrentSession takes according to SessionType
-        
-        enum sessionType {
-            case Work
-            case Short_Break
-            case Long_Break
-        }
         
         // MARK: Timer Operations
         @Published var isActive = false
         @Published var showingAlert = false
+        var currentSession = sessionType.Work
         
         // MARK: Hour:Minute:Second Text
         // Replace this with the users active timer duration
-        let originalTime = "1:25"
-        @Published var theTime: String = "1:25"
-        let originalDuration: Double = 85.0
-        @Published var sessionDuration: Double = 85.0 {
+        var originalTime: String = "3:00"
+        @Published var theTime: String = "3:00"
+//        {
+//            convertToActualTime(timeInSeconds:originalDuration)
+//        }
+        let originalDuration: Double = 180.0
+        @Published var sessionDuration: Double = 181.0 {
             didSet {
                 self.theTime = convertToActualTime(timeInSeconds: sessionDuration)
             }
@@ -55,6 +48,26 @@ extension TimerView {
         
         private var initialTime = 0
         private var endDate = Date()
+        
+        private var cancellables = Set<AnyCancellable>()
+        
+        init() {
+            $sessionDuration
+                    .sink { value in
+                        // Handle the updated value of number
+//                        print("Number updated: \(value)")
+                        // You can perform additional operations here
+                        
+                        self.theTime = self.convertToActualTime(timeInSeconds:value)
+                                                
+                    }
+                    .store(in: &cancellables)
+            }
+            
+        deinit {
+            cancellables.forEach { $0.cancel() }
+        }
+        
         
         func setup(activeTimer: TimerTasks){
             self.activeTimer = activeTimer
@@ -164,7 +177,7 @@ extension TimerView {
 
             let date = Date(timeIntervalSince1970: diff)
             let calendar = Calendar.current
-            let hours = calendar.component(.hour, from: date)
+//            let hours = calendar.component(.hour, from: date)
             let minutes = calendar.component(.minute, from: date)
             let seconds = calendar.component(.second, from: date)
 
