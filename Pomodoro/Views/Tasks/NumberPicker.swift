@@ -19,7 +19,7 @@ struct NumberPicker: View {
                 }) {
                     Text("-")
                         .font(.title)
-                        .foregroundColor(Color("Grayscale Label"))
+                        .foregroundColor(Color("Grayscale Off-Black"))
                         .frame(width: 40, height: 40)
                         .padding(5)
                         .background(Color("Grayscale BG"))
@@ -34,7 +34,7 @@ struct NumberPicker: View {
                 Button(action: { quantity += 1 }) {
                     Text("+")
                         .font(.title)
-                        .foregroundColor(Color("Grayscale Label"))
+                        .foregroundColor(Color("Grayscale Off-Black"))
                         .frame(width: 40, height: 40)
                         .padding(5)
                         .background(Color("Grayscale BG"))
