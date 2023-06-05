@@ -33,7 +33,11 @@ struct User: Codable {
         
         if var oldActiveTimer = self.timers.first(where: {$0.isActiveTimer}) {
             oldActiveTimer.isActiveTimer = false
-        } 
+        }
+        
+//        self.timers.filter{ $0.isActiveTimer }.forEach{
+//            $0.isActiveTimer = false
+//        }
         
         // Get the tTimer according to the UUID and make it true
         
