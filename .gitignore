@@ -4,3 +4,4 @@ Pomodoro/Musics/*
 !Pomodoro/Musics/.gitkeep
 Pomodoro/Assets.xcassets/MusicImage/*
 !Pomodoro/Assets.xcassets/MusicImage/gitplaceholder.dataset/*
+Pomodoro/Views/.DS_Store
