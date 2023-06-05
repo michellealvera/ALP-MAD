@@ -6,62 +6,9 @@
 //
 
 import Foundation
-
-// Study
-// Time is stored in seconds
-
-class TimerTasks: Identifiable {
-
-    // Duration is the time
-    // Session is the number of times the duration will happen
-    
-    var id: UUID
-    var name: String
-    var isActiveTimer: Bool
-    
-    var studyDuration: Int
-    var shortBreakDuration: Int
-    var studySessions: Int
-
-    
-    var isLongBreakEnabled: Bool
-    var longBreakDuration: Int
-    
-    init(
-        id: UUID = UUID(),
-        name: String,
-        isActiveTimer: Bool,
-        studyDuration: Int,
-        studySessions: Int,
-        shortBreakDuration: Int,
-        longBreakEnabled: Bool,
-        longBreakDuration: Int
-    ){
-        self.id = id
-        self.name = name
-        self.isActiveTimer = isActiveTimer
-        
-        self.studyDuration = studyDuration
-        self.studySessions = studySessions
-        
-        self.shortBreakDuration = shortBreakDuration
-        
-        self.isLongBreakEnabled = longBreakEnabled
-        self.longBreakDuration = longBreakDuration
-    }
-    
-}
-
-extension TimerTasks {
-    
-
-    
-}
-
-
 import RealmSwift
 
-class TimerTask: Object, ObjectKeyIdentifiable, Sequence {
+class TimerTask: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: UUID = UUID()
     @Persisted var name: String
     @Persisted var isActiveTimer: Bool
@@ -106,16 +53,17 @@ class TimerTask: Object, ObjectKeyIdentifiable, Sequence {
             } else {
                 try realm.write {
                     realm.add(
-                        TimerTasks(
+                        TimerTask(
                             name: "DefaultTimer",
                             isActiveTimer: true,
-                            studyDuration: 0,
-                            studySessions: 0,
-                            shortBreakDuration: 0,
+                            studyDuration: 25,
+                            studySessions: 4,
+                            shortBreakDuration: 1,
                             longBreakEnabled: false,
                             longBreakDuration: 0
                         ))
-                    realm.add(TimerTasks(
+                    
+                    realm.add(TimerTask(
                         name: "EmptyTimer",
                         isActiveTimer: false,
                         studyDuration: 0,
@@ -124,34 +72,13 @@ class TimerTask: Object, ObjectKeyIdentifiable, Sequence {
                         longBreakEnabled: false,
                         longBreakDuration: 0
                     ))
+                    
                 }
+                
                 return realm
             }
         } catch let error {
             fatalError("Can't bootstrap item data: \(error.localizedDescription)")
         }
     }
-    
-    static let sampleTimer: TimerTasks =
-    TimerTasks(
-        name: "DefaultTimer",
-        isActiveTimer: true,
-        studyDuration: 25,
-        studySessions: 2,
-        shortBreakDuration: 5,
-        longBreakEnabled: true,
-        longBreakDuration: 30
-    )
-    
-    static let emptyTimer: TimerTasks =
-    TimerTasks(
-        name: "EmptyTimer",
-        isActiveTimer: false,
-        studyDuration: 0,
-        studySessions: 0,
-        shortBreakDuration: 0,
-        longBreakEnabled: false,
-        longBreakDuration: 0
-    )
-    
 }

@@ -197,6 +197,7 @@ struct TimerView_Previews: PreviewProvider {
     
     static var previews: some View {
         TimerView()
+            .environment(\.realm, TimerTask.previewRealm)
            
     }
 }
