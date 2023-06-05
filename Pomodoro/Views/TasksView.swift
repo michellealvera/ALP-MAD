@@ -25,11 +25,11 @@ struct TasksView: View {
                         VStack{
                             
                             ForEach(allTimers){ timerTasks in
-                                Text(timerTasks.name)
+//                                Text(timerTasks.name)
                                 
-//                                TasksItemView(
-//                                    theTimerTask: timerTasks
-//                                )
+                                TasksItemView(
+                                    theTimerTask: timerTasks
+                                )
                             }
                         }
                         
