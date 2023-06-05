@@ -61,30 +61,41 @@ struct TimerView: View {
             SleepTimerSlider()
                 .padding(.top, 50)
             
-            if(vm.isActive){
+            if(vm.isActive && !vm.isPause){
                 
                 HStack{
                     
                     Button("Reset") {
-                        vm.isActive = false
                         vm.reset()
                         // Code to set the time to original
                     }.buttonStyle(VioletOutlinedCapsuleButton())
-                    
-                    Spacer()
+                        .padding(.horizontal)
+                   
                     
                     Button("Pause") {
-                        vm.isActive = false
+                        vm.pause()
                         
                     }.buttonStyle(VioletFilledCapsuleButton())
-                    
+                        .padding(.horizontal)
                     
                 }
                 .padding(.top, 40)
                 .padding(.horizontal)
                 
                 
-            } else {
+            } else if (!vm.isActive && vm.isPause) {
+                
+                Button {
+                    vm.resume()
+                } label: {
+                    Text("Continue")
+                        .font(.headline)
+                }
+                .buttonStyle(VioletFilledCapsuleButton())
+                .padding(.top, 40)
+                .padding(.horizontal)
+                
+            } else if (!vm.isActive && !vm.isPause) {
                 
                 Button {
                     vm.isActive = true
@@ -97,7 +108,7 @@ struct TimerView: View {
                 .padding(.top, 40)
                 .padding(.horizontal)
                 
-                
+
             }
             
             

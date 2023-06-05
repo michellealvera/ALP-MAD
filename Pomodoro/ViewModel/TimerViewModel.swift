@@ -21,6 +21,7 @@ extension TimerView {
         
         // MARK: Timer Operations
         @Published var isActive = false
+        @Published var isPause = false
         @Published var showingAlert = false
         var currentSession = sessionType.Work
         
@@ -32,7 +33,7 @@ extension TimerView {
 //            convertToActualTime(timeInSeconds:originalDuration)
 //        }
         let originalDuration: Double = 180.0
-        @Published var sessionDuration: Double = 181.0 {
+        @Published var sessionDuration: Double = 180.0 {
             didSet {
                 self.theTime = convertToActualTime(timeInSeconds: sessionDuration)
             }
@@ -83,14 +84,17 @@ extension TimerView {
         
         func resume(){
             self.isActive = true
+            self.isPause = false
         }
         
         func pause(){
             self.isActive = false
+            self.isPause = true
         }
 
         func reset() {
             self.isActive = false
+            self.isPause = false
             
             self.theTime = originalTime
             self.sessionDuration = originalDuration
