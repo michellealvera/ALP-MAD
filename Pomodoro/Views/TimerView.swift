@@ -12,6 +12,7 @@ import RealmSwift
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
     
+    @Environment(\.realm) var realm
     
     // MARK: Clock View Properties
     
@@ -119,11 +120,9 @@ struct TimerView: View {
         // Moving To Top Without Spacer
         .frame(maxHeight: .infinity, alignment: .top)
         .edgesIgnoringSafeArea(.horizontal)
-//        .onAppear{
-//            self.vm.setup(
-//                activeTimer: self.modelData.activeUser.getActiveTimer()
-//            )
-//        }
+        .onAppear{
+            self.vm.setup(realm: realm)
+        }
         
     }
     
@@ -176,15 +175,19 @@ struct TimerView: View {
                 // MARK: Hour Text
                 VStack(spacing: 10){
                     
-                    // FIXME: TimerIssue
-//                    Text("\(vm.activeTimer.name)")
-//                        .font(.caption.italic())
-//                        .padding(.top, -40)
+                    Text("\(vm.activeTimer.name)")
+                        .font(.caption.italic())
+                        .padding(.top, -30)
                     
                     
                     Text("\(vm.theTime)")
                         .font(.largeTitle.bold())
                         .padding(.vertical, 2)
+                    
+                    
+                    Text("\(vm.lapsedSession) Session Done")
+                        .font(.caption)
+                        .padding(.top, -10)
                     
                 }
                 
