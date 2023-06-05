@@ -26,6 +26,7 @@
 		041531AA2A1C5D2B000218C4 /* TimerTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531A92A1C5D2B000218C4 /* TimerTasks.swift */; };
 		041531AE2A1C67E5000218C4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531AD2A1C67E5000218C4 /* ProfileView.swift */; };
 		049FB3C52A2E29B8009CE48A /* VioletActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB3C42A2E29B8009CE48A /* VioletActionButton.swift */; };
+		049FB3CB2A2E36D0009CE48A /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB3CA2A2E36D0009CE48A /* NumberPicker.swift */; };
 		04ACE3BC2A233F3100230D3B /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BB2A233F3100230D3B /* TasksView.swift */; };
 		04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BD2A23879800230D3B /* GradientHelper.swift */; };
 		04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BF2A2388F800230D3B /* ModelData.swift */; };
@@ -84,6 +85,7 @@
 		041531A92A1C5D2B000218C4 /* TimerTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTasks.swift; sourceTree = "<group>"; };
 		041531AD2A1C67E5000218C4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		049FB3C42A2E29B8009CE48A /* VioletActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VioletActionButton.swift; sourceTree = "<group>"; };
+		049FB3CA2A2E36D0009CE48A /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 		04ACE3BB2A233F3100230D3B /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		04ACE3BD2A23879800230D3B /* GradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHelper.swift; sourceTree = "<group>"; };
 		04ACE3BF2A2388F800230D3B /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				0401B74E2A2D882A000416A7 /* TasksItemView.swift */,
 				0401B7502A2DBA34000416A7 /* TasksDialogSheet.swift */,
 				049FB3C42A2E29B8009CE48A /* VioletActionButton.swift */,
+				049FB3CA2A2E36D0009CE48A /* NumberPicker.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049FB3CB2A2E36D0009CE48A /* NumberPicker.swift in Sources */,
 				049FB3C52A2E29B8009CE48A /* VioletActionButton.swift in Sources */,
 				041095882A23B1EB00095BC8 /* TimerViewModel.swift in Sources */,
 				254D5C992A2B3FF400DDC469 /* AppStorageJsonHelper.swift in Sources */,
