@@ -20,7 +20,7 @@ struct TasksView: View {
             ZStack(alignment: .bottom) {
                 
                 if (!allTimers.isEmpty){
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         
                         VStack{
                             
@@ -55,13 +55,26 @@ struct TasksView: View {
                     
                     Spacer()
                     
-                    VioletActionButton()
+
+                    NavigationLink(value: "AddTasksView") {
+                        
+                        VioletActionButton {
+                            
+                        }
+                        
+                    }
+//                    .navigationDestination(for: String.self, destination: { view in
+//                        if view == "AddTasksView" {
+//                            AddTasksView()
+//                        }
+//                    })
                     
                 }.padding(.horizontal, 20)
                 
             } //ZStack
             
         }
+
         //        .onAppear{
         //            self.activeTimerUUID = modelData.activeUser.getActiveTimer().id
         //        }
