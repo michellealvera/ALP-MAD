@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct OnboardingView: View {
-    @EnvironmentObject var modelData: ModelData
+    @Environment(\.realm) var realm
+    
+   
     @StateObject var vm: ViewModel = ViewModel()
     
     var body: some View {
@@ -77,7 +80,9 @@ struct OnboardingView: View {
                         .foregroundColor(Color("Grayscale Label"))
                         .cornerRadius(10)
                     
-                    Button(action: { vm.finishOnboarding(env: modelData) }) {
+                    Button(action: {
+                        vm.finishOnboarding(realm: realm)
+                    }) {
                         HStack(alignment:.center, spacing: 10) {
                             Spacer()
                             

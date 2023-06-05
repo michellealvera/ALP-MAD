@@ -14,22 +14,18 @@
 		040162322A1C4B6300AB9F53 /* PomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040162312A1C4B6300AB9F53 /* PomodoroTests.swift */; };
 		0401623C2A1C4B6300AB9F53 /* PomodoroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401623B2A1C4B6300AB9F53 /* PomodoroUITests.swift */; };
 		0401623E2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401623D2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift */; };
-		040259B82A28BECD0050F1B4 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040259B72A28BECD0050F1B4 /* ProfileCardView.swift */; };
 		040313932A25954700A30A12 /* MultipickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040313922A25954700A30A12 /* MultipickerView.swift */; };
 		041095862A239F6300095BC8 /* ExperimentalTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041095852A239F6300095BC8 /* ExperimentalTimerView.swift */; };
 		041095882A23B1EB00095BC8 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041095872A23B1EB00095BC8 /* TimerViewModel.swift */; };
 		041531A22A1C5C29000218C4 /* SymbolHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531A12A1C5C29000218C4 /* SymbolHelper.swift */; };
 		041531A42A1C5CAD000218C4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531A32A1C5CAD000218C4 /* MainView.swift */; };
-		041531A82A1C5D22000218C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531A72A1C5D22000218C4 /* User.swift */; };
 		041531AA2A1C5D2B000218C4 /* TimerTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531A92A1C5D2B000218C4 /* TimerTasks.swift */; };
 		041531AE2A1C67E5000218C4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041531AD2A1C67E5000218C4 /* ProfileView.swift */; };
 		04ACE3BC2A233F3100230D3B /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BB2A233F3100230D3B /* TasksView.swift */; };
 		04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BD2A23879800230D3B /* GradientHelper.swift */; };
-		04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BF2A2388F800230D3B /* ModelData.swift */; };
 		04ACE3C22A238C0E00230D3B /* ButtonStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */; };
 		04B5B0482A2054E800905FA2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B0472A2054E800905FA2 /* TimerView.swift */; };
 		25243B9D2A28E93400E45F17 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243B9C2A28E93400E45F17 /* Music.swift */; };
-		25243BA22A28E9C800E45F17 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 25243BA12A28E9C800E45F17 /* Subsonic */; };
 		25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */; };
 		25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */; };
 		254D5C952A2B35C100DDC469 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C922A2B35C100DDC469 /* .gitkeep */; };
@@ -37,8 +33,11 @@
 		254D5C972A2B35C100DDC469 /* music-mystique.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 254D5C942A2B35C100DDC469 /* music-mystique.mp3 */; };
 		254D5C992A2B3FF400DDC469 /* AppStorageJsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5C982A2B3FF400DDC469 /* AppStorageJsonHelper.swift */; };
 		254D5C9C2A2B485800DDC469 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5C9B2A2B485800DDC469 /* OnboardingView.swift */; };
-		254D5C9E2A2B510400DDC469 /* JsonAppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5C9D2A2B510400DDC469 /* JsonAppStorage.swift */; };
 		254D5CA02A2B554500DDC469 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5C9F2A2B554500DDC469 /* OnboardingViewModel.swift */; };
+		256B574E2A2E21AD00C2E863 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 256B574D2A2E21AD00C2E863 /* Realm */; };
+		256B57502A2E21AD00C2E863 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 256B574F2A2E21AD00C2E863 /* RealmSwift */; };
+		256B57522A2E23B300C2E863 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256B57512A2E23B300C2E863 /* Preference.swift */; };
+		25785C5A2A2CD77300D45C91 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25785C592A2CD77300D45C91 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,18 +68,15 @@
 		040162372A1C4B6300AB9F53 /* PomodoroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0401623B2A1C4B6300AB9F53 /* PomodoroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITests.swift; sourceTree = "<group>"; };
 		0401623D2A1C4B6300AB9F53 /* PomodoroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		040259B72A28BECD0050F1B4 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		040313922A25954700A30A12 /* MultipickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipickerView.swift; sourceTree = "<group>"; };
 		041095852A239F6300095BC8 /* ExperimentalTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalTimerView.swift; sourceTree = "<group>"; };
 		041095872A23B1EB00095BC8 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		041531A12A1C5C29000218C4 /* SymbolHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolHelper.swift; sourceTree = "<group>"; };
 		041531A32A1C5CAD000218C4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		041531A72A1C5D22000218C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		041531A92A1C5D2B000218C4 /* TimerTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTasks.swift; sourceTree = "<group>"; };
 		041531AD2A1C67E5000218C4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		04ACE3BB2A233F3100230D3B /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		04ACE3BD2A23879800230D3B /* GradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHelper.swift; sourceTree = "<group>"; };
-		04ACE3BF2A2388F800230D3B /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleHelper.swift; sourceTree = "<group>"; };
 		04B5B0472A2054E800905FA2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		25243B9C2A28E93400E45F17 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
@@ -91,8 +87,9 @@
 		254D5C942A2B35C100DDC469 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
 		254D5C982A2B3FF400DDC469 /* AppStorageJsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageJsonHelper.swift; sourceTree = "<group>"; };
 		254D5C9B2A2B485800DDC469 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		254D5C9D2A2B510400DDC469 /* JsonAppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonAppStorage.swift; sourceTree = "<group>"; };
 		254D5C9F2A2B554500DDC469 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		256B57512A2E23B300C2E863 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		25785C592A2CD77300D45C91 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25243BA22A28E9C800E45F17 /* Subsonic in Frameworks */,
+				256B57502A2E21AD00C2E863 /* RealmSwift in Frameworks */,
+				256B574E2A2E21AD00C2E863 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,10 +191,9 @@
 		0415319E2A1C5BC5000218C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				041531A72A1C5D22000218C4 /* User.swift */,
 				041531A92A1C5D2B000218C4 /* TimerTasks.swift */,
-				04ACE3BF2A2388F800230D3B /* ModelData.swift */,
 				25243B9C2A28E93400E45F17 /* Music.swift */,
+				256B57512A2E23B300C2E863 /* Preference.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,7 +206,6 @@
 				041531B02A1C67FE000218C4 /* Timers */,
 				041531AF2A1C67F2000218C4 /* Profile */,
 				041531A32A1C5CAD000218C4 /* MainView.swift */,
-				041531AD2A1C67E5000218C4 /* ProfileView.swift */,
 				04B5B0472A2054E800905FA2 /* TimerView.swift */,
 				041095852A239F6300095BC8 /* ExperimentalTimerView.swift */,
 				04ACE3BB2A233F3100230D3B /* TasksView.swift */,
@@ -224,7 +220,6 @@
 				04ACE3BD2A23879800230D3B /* GradientHelper.swift */,
 				04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */,
 				254D5C982A2B3FF400DDC469 /* AppStorageJsonHelper.swift */,
-				254D5C9D2A2B510400DDC469 /* JsonAppStorage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -232,7 +227,8 @@
 		041531AF2A1C67F2000218C4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				040259B72A28BECD0050F1B4 /* ProfileCardView.swift */,
+				041531AD2A1C67E5000218C4 /* ProfileView.swift */,
+				25785C592A2CD77300D45C91 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -290,7 +286,8 @@
 			);
 			name = Pomodoro;
 			packageProductDependencies = (
-				25243BA12A28E9C800E45F17 /* Subsonic */,
+				256B574D2A2E21AD00C2E863 /* Realm */,
+				256B574F2A2E21AD00C2E863 /* RealmSwift */,
 			);
 			productName = Pomodoro;
 			productReference = 0401621D2A1C4B6100AB9F53 /* Pomodoro.app */;
@@ -365,7 +362,7 @@
 			);
 			mainGroup = 040162142A1C4B6100AB9F53;
 			packageReferences = (
-				25243BA02A28E9C800E45F17 /* XCRemoteSwiftPackageReference "Subsonic" */,
+				256B574C2A2E21AD00C2E863 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 0401621E2A1C4B6100AB9F53 /* Products */;
 			projectDirPath = "";
@@ -420,19 +417,17 @@
 				04ACE3C22A238C0E00230D3B /* ButtonStyleHelper.swift in Sources */,
 				254D5C9C2A2B485800DDC469 /* OnboardingView.swift in Sources */,
 				041531AE2A1C67E5000218C4 /* ProfileView.swift in Sources */,
-				040259B82A28BECD0050F1B4 /* ProfileCardView.swift in Sources */,
 				25243B9D2A28E93400E45F17 /* Music.swift in Sources */,
 				041531A42A1C5CAD000218C4 /* MainView.swift in Sources */,
 				041531AA2A1C5D2B000218C4 /* TimerTasks.swift in Sources */,
 				041095862A239F6300095BC8 /* ExperimentalTimerView.swift in Sources */,
 				25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */,
 				254D5CA02A2B554500DDC469 /* OnboardingViewModel.swift in Sources */,
-				041531A82A1C5D22000218C4 /* User.swift in Sources */,
-				04ACE3C02A2388F800230D3B /* ModelData.swift in Sources */,
+				256B57522A2E23B300C2E863 /* Preference.swift in Sources */,
+				25785C5A2A2CD77300D45C91 /* ProfileViewModel.swift in Sources */,
 				040162232A1C4B6100AB9F53 /* ContentView.swift in Sources */,
 				040162212A1C4B6100AB9F53 /* PomodoroApp.swift in Sources */,
 				040313932A25954700A30A12 /* MultipickerView.swift in Sources */,
-				254D5C9E2A2B510400DDC469 /* JsonAppStorage.swift in Sources */,
 				25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */,
 				04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */,
 			);
@@ -761,21 +756,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		25243BA02A28E9C800E45F17 /* XCRemoteSwiftPackageReference "Subsonic" */ = {
+		256B574C2A2E21AD00C2E863 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/Subsonic";
+			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		25243BA12A28E9C800E45F17 /* Subsonic */ = {
+		256B574D2A2E21AD00C2E863 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 25243BA02A28E9C800E45F17 /* XCRemoteSwiftPackageReference "Subsonic" */;
-			productName = Subsonic;
+			package = 256B574C2A2E21AD00C2E863 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		256B574F2A2E21AD00C2E863 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 256B574C2A2E21AD00C2E863 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

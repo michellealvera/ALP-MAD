@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import RealmSwift
 
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
@@ -22,8 +23,14 @@ struct TimerView: View {
     
     
     // MARK: TimerView Properties
-    @EnvironmentObject var modelData: ModelData
+    
+    @ObservedResults(
+        Preference.self,
+        where: { $0.key == "username" }
+    ) var username
+    
     @StateObject private var vm = ViewModel()
+    
     private let timer = Timer.publish(every: 1, on: .main, in:
             .common).autoconnect()
     @State var isRunning: Bool = false
@@ -42,7 +49,7 @@ struct TimerView: View {
                         .font(.title.bold())
                         .foregroundColor(.black)
                     // Replace this with current users name
-                    + Text(modelData.activeUser.name)
+                    + Text(username.first!.value)
                         .font(.title.bold())
                         .foregroundColor(Color("Violet 500"))
                     
@@ -101,11 +108,11 @@ struct TimerView: View {
         // Moving To Top Without Spacer
         .frame(maxHeight: .infinity, alignment: .top)
         .edgesIgnoringSafeArea(.horizontal)
-        .onAppear{
-            self.vm.setup(
-                activeTimer: self.modelData.activeUser.getActiveTimer()
-            )
-        }
+//        .onAppear{
+//            self.vm.setup(
+//                activeTimer: self.modelData.activeUser.getActiveTimer()
+//            )
+//        }
         
     }
     
@@ -186,11 +193,11 @@ struct TimerView: View {
 }
 
 struct TimerView_Previews: PreviewProvider {
-    static let modelData = ModelData()
+  
     
     static var previews: some View {
         TimerView()
-            .environmentObject(modelData)
+           
     }
 }
 
