@@ -98,7 +98,6 @@
 		254D5C9B2A2B485800DDC469 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		254D5C9F2A2B554500DDC469 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		256B57512A2E23B300C2E863 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
-		256B57572A2E3A8300C2E863 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitkeep; path = ../../../../Downloads/msuxic/Musics/.gitkeep; sourceTree = "<group>"; };
 		256B57592A2E3AE600C2E863 /* music-411Ψ892.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-411Ψ892.mp3"; sourceTree = "<group>"; };
 		256B575A2A2E3AE600C2E863 /* music-mystique.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "music-mystique.mp3"; sourceTree = "<group>"; };
 		25785C592A2CD77300D45C91 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
