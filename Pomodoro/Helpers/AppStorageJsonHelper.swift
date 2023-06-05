@@ -15,7 +15,10 @@ struct AppStorageJsonHelper<T: Codable> {
     func load(`default`: T) -> T {
         
         if let loadedData = UserDefaults.standard.data(forKey: key) {
-            return try! JSONDecoder().decode(T.self, from: loadedData)
+            debugPrint("Json exist");
+            let data = try! JSONDecoder().decode(T.self, from: loadedData)
+            debugPrint("Result", data)
+            return data
         }
         
         return `default`
@@ -23,7 +26,9 @@ struct AppStorageJsonHelper<T: Codable> {
     
     func save(`data`: T) -> Void {
         if let encoded = try? JSONEncoder().encode(`data`) {
+            debugPrint("Saving json")
             UserDefaults.standard.set(encoded, forKey: key)
+            debugPrint("Saved", encoded)
         }
     }
 }

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
-    @AppStorage("showOnboardingPages") var showOnboardingPage: Bool = false
-    
-    @EnvironmentObject var modelData: ModelData
+    @ObservedResults(
+        Preference.self,
+        where: { $0.key == "hasFinishedOnboarding" }
+    ) var finishedOnboarding
     
     var body: some View {
         
@@ -19,8 +21,9 @@ struct ContentView: View {
                 MainView()
             }
         }
+        
         .fullScreenCover(
-            isPresented: Binding(get: { !modelData.finishedOnboarding }, set: {_ in }),
+            isPresented: Binding(get: { !(finishedOnboarding.first!.value == "true") }, set: {_ in }),
             content: {
                 OnboardingView()
             }
@@ -31,10 +34,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     
-    static let modelData = ModelData()
+   
     
     static var previews: some View {
         ContentView()
-            .environmentObject(modelData)
+           
     }
 }

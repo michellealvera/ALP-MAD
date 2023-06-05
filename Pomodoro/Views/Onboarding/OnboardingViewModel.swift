@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 
 
 extension OnboardingView {
@@ -30,17 +31,18 @@ extension OnboardingView {
         @Published var currentPage = 0
         @Published var selectedUsername = ""
         
-        func finishOnboarding(env: ModelData) -> Void {
+        
+        func finishOnboarding(realm: Realm) -> Void {
             if !selectedUsername.isEmpty {
                 
-                let newUser = User(
-                    name: selectedUsername,
-                    timers: []
-                )
-                
-                withAnimation {
-                    env.finishedOnboarding = true
-                    env.activeUser = newUser
+                try? realm.write {
+                    
+                    let finishedOnboarding = realm.object(ofType: Preference.self, forPrimaryKey: "hasFinishedOnboarding")
+                    let username = realm.object(ofType: Preference.self, forPrimaryKey: "username")
+                    
+                    finishedOnboarding!.value = "true"
+                    username!.value = self.selectedUsername
+                    
                 }
             }
         }
