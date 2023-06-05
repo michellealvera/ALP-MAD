@@ -144,15 +144,15 @@ extension TimerView {
             
             
             if(hours != 0) {
-                return "\(Int(hours)):\(Int(minutes)):\(Int(seconds))"
+                return String(format: "%d:%d:%02d", hours, minutes, seconds)
             }
             
             if(minutes != 0){
-                return "\(Int(minutes)):\(Int(seconds))"
+                return String(format: "%d:%02d", minutes, seconds)
             }
             
             if(seconds != 0){
-                return "\(Int(seconds))"
+                return String(format: "00:%02d", seconds)
             }
             
             return "--:--:--"
