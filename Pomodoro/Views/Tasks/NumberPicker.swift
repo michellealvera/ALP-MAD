@@ -21,7 +21,7 @@ struct NumberPicker: View {
                         .font(.title)
                         .foregroundColor(Color("Grayscale Off-Black"))
                         .frame(width: 40, height: 40)
-                        .padding(5)
+                        .padding(3)
                         .background(Color("Grayscale BG"))
                         .cornerRadius(.infinity)
                 }
@@ -36,7 +36,7 @@ struct NumberPicker: View {
                         .font(.title)
                         .foregroundColor(Color("Grayscale Off-Black"))
                         .frame(width: 40, height: 40)
-                        .padding(5)
+                        .padding(3)
                         .background(Color("Grayscale BG"))
                         .cornerRadius(.infinity)
                 }
