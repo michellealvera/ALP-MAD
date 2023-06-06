@@ -32,6 +32,7 @@
 		04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3BD2A23879800230D3B /* GradientHelper.swift */; };
 		04ACE3C22A238C0E00230D3B /* ButtonStyleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */; };
 		04B5B0482A2054E800905FA2 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5B0472A2054E800905FA2 /* TimerView.swift */; };
+		252001FB2A2ECDC20059BAD9 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252001FA2A2ECDC20059BAD9 /* Env.swift */; };
 		25243B9D2A28E93400E45F17 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243B9C2A28E93400E45F17 /* Music.swift */; };
 		25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */; };
 		25243BAD2A29001300E45F17 /* MusicPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */; };
@@ -94,6 +95,7 @@
 		04ACE3BD2A23879800230D3B /* GradientHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHelper.swift; sourceTree = "<group>"; };
 		04ACE3C12A238C0E00230D3B /* ButtonStyleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleHelper.swift; sourceTree = "<group>"; };
 		04B5B0472A2054E800905FA2 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		252001FA2A2ECDC20059BAD9 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		25243B9C2A28E93400E45F17 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		25243BA32A28E9F300E45F17 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		25243BAC2A29001300E45F17 /* MusicPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewModel.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				25243B9C2A28E93400E45F17 /* Music.swift */,
 				256B57512A2E23B300C2E863 /* Preference.swift */,
 				256B575D2A2E668D00C2E863 /* PreviewRealm.swift */,
+				252001FA2A2ECDC20059BAD9 /* Env.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				040162232A1C4B6100AB9F53 /* ContentView.swift in Sources */,
 				040162212A1C4B6100AB9F53 /* PomodoroApp.swift in Sources */,
 				040313932A25954700A30A12 /* MultipickerView.swift in Sources */,
+				252001FB2A2ECDC20059BAD9 /* Env.swift in Sources */,
 				25243BA42A28E9F300E45F17 /* MusicPlayerView.swift in Sources */,
 				04ACE3BE2A23879800230D3B /* GradientHelper.swift in Sources */,
 				256B575E2A2E668D00C2E863 /* PreviewRealm.swift in Sources */,
@@ -626,7 +630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pomodoro/Preview Content\"";
-				DEVELOPMENT_TEAM = V383GK4HDH;
+				DEVELOPMENT_TEAM = QH9X33Y55J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -655,7 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pomodoro/Preview Content\"";
-				DEVELOPMENT_TEAM = V383GK4HDH;
+				DEVELOPMENT_TEAM = QH9X33Y55J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

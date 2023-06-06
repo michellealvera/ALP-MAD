@@ -25,5 +25,35 @@ extension ProfileView {
             
             self.isEditingName.toggle()
         }
+        
+        func resetTimer(realm: Realm, env: Env) {
+            let timers = realm.objects(TimerTask.self)
+            
+            try? realm.write {
+                for timer in timers {
+                    realm.delete(timer)
+                }
+            }
+        }
+        
+        func resetApp(realm: Realm, env: Env) -> Void {
+            let timers = realm.objects(TimerTask.self)
+            
+            let username = realm.object(ofType: Preference.self, forPrimaryKey: "username")
+            let onboarding = realm.object(ofType: Preference.self, forPrimaryKey: "hasFinishedOnboarding")
+            
+            try? realm.write {
+                
+                for timer in timers {
+                    realm.delete(timer)
+                }
+                
+                username!.value = ""
+                onboarding!.value = "false"
+            }
+            
+            env.username = ""
+            env.onboarding = true
+        }
     }
 }
