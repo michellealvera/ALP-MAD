@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TasksItemView: View {
-    
-    
-        
+
     var theTimerTask: TimerTask
     @State var shownSheet: Bool = false
     
@@ -127,7 +125,7 @@ struct TasksItemView_Previews: PreviewProvider {
             
 //            TasksItemView(
 //                theTimerTask: sampleTimer)
-//            
+//
 //            TasksItemView(
 //                theTimerTask: emptyTimer)
             

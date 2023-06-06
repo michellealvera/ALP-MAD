@@ -12,6 +12,7 @@ import RealmSwift
 // The TimerView contains the active timer and the playlist at the bottom, if we have time.
 struct TimerView: View {
     
+    @Environment(\.realm) var realm
     
     // MARK: Clock View Properties
     
@@ -61,30 +62,41 @@ struct TimerView: View {
             SleepTimerSlider()
                 .padding(.top, 50)
             
-            if(vm.isActive){
+            if(vm.isActive && !vm.isPause){
                 
                 HStack{
                     
                     Button("Reset") {
-                        vm.isActive = false
                         vm.reset()
                         // Code to set the time to original
                     }.buttonStyle(VioletOutlinedCapsuleButton())
-                    
-                    Spacer()
+                        .padding(.horizontal)
+                   
                     
                     Button("Pause") {
-                        vm.isActive = false
+                        vm.pause()
                         
                     }.buttonStyle(VioletFilledCapsuleButton())
-                    
+                        .padding(.horizontal)
                     
                 }
                 .padding(.top, 40)
                 .padding(.horizontal)
                 
                 
-            } else {
+            } else if (!vm.isActive && vm.isPause) {
+                
+                Button {
+                    vm.resume()
+                } label: {
+                    Text("Continue")
+                        .font(.headline)
+                }
+                .buttonStyle(VioletFilledCapsuleButton())
+                .padding(.top, 40)
+                .padding(.horizontal)
+                
+            } else if (!vm.isActive && !vm.isPause) {
                 
                 Button {
                     vm.isActive = true
@@ -97,7 +109,7 @@ struct TimerView: View {
                 .padding(.top, 40)
                 .padding(.horizontal)
                 
-                
+
             }
             
             
@@ -108,11 +120,9 @@ struct TimerView: View {
         // Moving To Top Without Spacer
         .frame(maxHeight: .infinity, alignment: .top)
         .edgesIgnoringSafeArea(.horizontal)
-//        .onAppear{
-//            self.vm.setup(
-//                activeTimer: self.modelData.activeUser.getActiveTimer()
-//            )
-//        }
+        .onAppear{
+            self.vm.setup(realm: realm)
+        }
         
     }
     
@@ -165,15 +175,26 @@ struct TimerView: View {
                 // MARK: Hour Text
                 VStack(spacing: 10){
                     
-                    // FIXME: TimerIssue
-//                    Text("\(vm.activeTimer.name)")
-//                        .font(.caption.italic())
-//                        .padding(.top, -40)
+                    Text("\(vm.activeTimer.name)")
+                        .font(.caption.italic())
+                        .padding(.top, -30)
                     
                     
                     Text("\(vm.theTime)")
                         .font(.largeTitle.bold())
                         .padding(.vertical, 2)
+                    
+                    
+                    if (!(vm.currentSession == sessionType.Long_Break)) {
+                        Text("\(vm.lapsedSession) Session Done")
+                            .font(.caption)
+                            .padding(.top, -10)
+                        
+                    } else {
+                        Text("Long Break Session")
+                            .font(.caption)
+                            .padding(.top, -10)
+                    }
                     
                 }
                 

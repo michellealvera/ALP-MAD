@@ -7,8 +7,10 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 enum sessionType {
+    case standby
     case Work
     case Short_Break
     case Long_Break
@@ -17,24 +19,31 @@ enum sessionType {
 extension TimerView {
     final class ViewModel: ObservableObject {
         
-//        var activeTimer: TimerTask = TimerTask.sampleTimer
+        var activeTimer: TimerTask = TimerTask(
+            name: "DefaultTimer",
+            isActiveTimer: true,
+            studyDuration: 25,
+            studySessions: 4,
+            shortBreakDuration: 1,
+            longBreakEnabled: false,
+            longBreakDuration: 0
+        )
         
         // MARK: Timer Operations
         @Published var isActive = false
+        @Published var isPause = false
         @Published var showingAlert = false
-        var currentSession = sessionType.Work
+        var currentSession = sessionType.standby
+        var lapsedSession = 0
         
         // MARK: Hour:Minute:Second Text
         // Replace this with the users active timer duration
-        var originalTime: String = "3:00"
-        @Published var theTime: String = "3:00"
-//        {
-//            convertToActualTime(timeInSeconds:originalDuration)
-//        }
-        let originalDuration: Double = 180.0
-        @Published var sessionDuration: Double = 181.0 {
+        var originalTime: String = "0:00"
+        @Published var theTime: String = "0:00"
+        var originalDuration: Double = 3.0
+        @Published var sessionDuration: Double = 3.0 {
             didSet {
-                self.theTime = convertToActualTime(timeInSeconds: sessionDuration)
+                self.theTime = convertToActualTime(timeInSeconds: sessionDuration*60)
             }
         }
         
@@ -51,28 +60,48 @@ extension TimerView {
         
         private var cancellables = Set<AnyCancellable>()
         
-        init() {
-            $sessionDuration
-                    .sink { value in
-                        // Handle the updated value of number
-//                        print("Number updated: \(value)")
-                        // You can perform additional operations here
-                        
-                        self.theTime = self.convertToActualTime(timeInSeconds:value)
-                                                
-                    }
-                    .store(in: &cancellables)
-            }
+//        init() {
+//            $sessionDuration
+//                    .sink { value in
+//                        // Handle the updated value of number
+////                        print("Number updated: \(value)")
+//                        // You can perform additional operations here
+//
+//                        self.theTime = self.convertToActualTime(timeInSeconds:value)
+//
+//                    }
+//                    .store(in: &cancellables)
+//            }
             
-        deinit {
-            cancellables.forEach { $0.cancel() }
-        }
+//        deinit {
+//            cancellables.forEach { $0.cancel() }
+//        }
         
         
         // FIXME: Timer Problem
-//        func setup(activeTimer: TimerTask){
-//            self.activeTimer = activeTimer
-//        }
+        func setup(realm: Realm){
+            
+            // Define the predicate to filter for isActiveTimer = true
+            let predicate = NSPredicate(format: "isActiveTimer == true")
+
+            // Retrieve all objects of the Timer model class that match the predicate
+            if let retrievedTimer = realm.objects(TimerTask.self).filter(predicate).first {
+                self.activeTimer = retrievedTimer
+                
+            } else {
+                self.activeTimer = TimerTask(
+                    name: "DefaultTimer",
+                    isActiveTimer: true,
+                    studyDuration: 2,
+                    studySessions: 4,
+                    shortBreakDuration: 1,
+                    longBreakEnabled: true,
+                    longBreakDuration: 3
+                )
+            }
+            
+            determineNextAction()
+        }
         
         func start() {
             self.endDate = Date()
@@ -83,23 +112,78 @@ extension TimerView {
         
         func resume(){
             self.isActive = true
+            self.isPause = false
         }
         
         func pause(){
             self.isActive = false
+            self.isPause = true
         }
 
         func reset() {
             self.isActive = false
+            self.isPause = false
             
             self.theTime = originalTime
             self.sessionDuration = originalDuration
             
             self.toProgress = originalProgress
             self.toAngle = originalAngle
+            
+            self.lapsedSession = 0
         }
         
-        //
+        func determineNextAction(){
+            
+            if (currentSession == sessionType.standby) {
+                
+                // Helps prevent timer from starting during initialization
+                currentSession = sessionType.Short_Break
+                batchSetTime(theMinutes: Double(activeTimer.studyDuration))
+                
+            } else if (currentSession == sessionType.Work){
+                
+                // Execute Break Session
+                batchSetTime(theMinutes: Double(activeTimer.shortBreakDuration))
+                currentSession = sessionType.Short_Break
+                self.start()
+                
+            } else if (currentSession == sessionType.Short_Break) {
+                
+                // Check to do work again
+                if (activeTimer.studySessions != lapsedSession) {
+                    
+                    lapsedSession += 1
+                    batchSetTime(theMinutes: Double(activeTimer.studyDuration))
+                    currentSession = sessionType.Work
+                    self.start()
+                
+                // Check long break enabled
+                } else if (activeTimer.isLongBreakEnabled) {
+                    
+                    batchSetTime(theMinutes: Double(activeTimer.longBreakDuration))
+                    currentSession = sessionType.Long_Break
+                    self.start()
+                }
+                
+            } else if (currentSession == sessionType.Long_Break) {
+                
+                batchSetTime(theMinutes: Double(activeTimer.studyDuration))
+                self.reset()
+                currentSession = sessionType.Work
+            }
+            
+        }
+        
+        func batchSetTime(theMinutes:Double){
+            
+            originalTime = convertToActualTime(timeInSeconds: theMinutes*60)
+            theTime = convertToActualTime(timeInSeconds: theMinutes*60)
+            originalDuration = theMinutes*60
+            sessionDuration = theMinutes*60
+            
+        }
+        
         func calculateAngle(recentTime: Double){
             
             // 5.96 is full
@@ -122,17 +206,9 @@ extension TimerView {
             
             var theTimeInSeconds = timeInSeconds
             
-            var hours = 0.0
             var minutes = 0.0
             var seconds = 0.0
             
-//            calculateAngle(recentTime: theTimeInSeconds)
-            
-            if(theTimeInSeconds > 3600){
-                hours = (theTimeInSeconds / 3600).rounded()
-                theTimeInSeconds -= hours*3600
-            }
-
             if(theTimeInSeconds > 60) {
                 minutes = (theTimeInSeconds / 60).rounded()
                 theTimeInSeconds -= minutes*60
@@ -143,16 +219,12 @@ extension TimerView {
             }
             
             
-            if(hours != 0) {
-                return "\(Int(hours)):\(Int(minutes)):\(Int(seconds))"
-            }
-            
             if(minutes != 0){
-                return "\(Int(minutes)):\(Int(seconds))"
+                return String(format: "%d:%02d", minutes, seconds)
             }
             
             if(seconds != 0){
-                return "\(Int(seconds))"
+                return String(format: "00:%02d", seconds)
             }
             
             return "--:--:--"
@@ -167,9 +239,10 @@ extension TimerView {
             if diff <= 0 {
                 self.isActive = false
                 self.theTime = "00:00"
-                self.showingAlert = true
+//                self.showingAlert = true
                 
-                self.reset()
+//                self.reset()
+                determineNextAction()
                 
                 return
             }

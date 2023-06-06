@@ -20,16 +20,16 @@ struct TasksView: View {
             ZStack(alignment: .bottom) {
                 
                 if (!allTimers.isEmpty){
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         
                         VStack{
                             
                             ForEach(allTimers){ timerTasks in
-                                Text(timerTasks.name)
+//                                Text(timerTasks.name)
                                 
-//                                TasksItemView(
-//                                    theTimerTask: timerTasks
-//                                )
+                                TasksItemView(
+                                    theTimerTask: timerTasks
+                                )
                             }
                         }
                         
@@ -55,13 +55,26 @@ struct TasksView: View {
                     
                     Spacer()
                     
-                    VioletActionButton()
+
+                    NavigationLink(value: "AddTasksView") {
+                        
+                        VioletActionButton {
+                            
+                        }
+                        
+                    }
+//                    .navigationDestination(for: String.self, destination: { view in
+//                        if view == "AddTasksView" {
+//                            AddTasksView()
+//                        }
+//                    })
                     
                 }.padding(.horizontal, 20)
                 
             } //ZStack
             
         }
+
         //        .onAppear{
         //            self.activeTimerUUID = modelData.activeUser.getActiveTimer().id
         //        }

@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct VioletActionButton: View {
+    
+    var callback: () -> Void
+    
+    init(callback: @escaping ()->Void){
+        self.callback = callback
+    }
+    
     var body: some View {
         Button(action: {
             //Place your action here
@@ -26,7 +33,10 @@ struct VioletActionButton: View {
 }
 
 struct VioletActionButton_Previews: PreviewProvider {
+    
     static var previews: some View {
-        VioletActionButton()
+        VioletActionButton {
+            print("Something")
+        }
     }
 }
