@@ -13,6 +13,9 @@ struct ProfileView: View {
     
     @StateObject var vm: ViewModel = ViewModel()
     
+    
+    @EnvironmentObject var env: Env
+    
     @Environment(\.realm) var realm
     
     
@@ -61,17 +64,23 @@ struct ProfileView: View {
             Section(header: Text("Danger Zone")) {
                 Button("Clear timer") {
                     
-                    vm.resetTimer(realm: realm)
+                    vm.resetTimer(realm: realm, env: env)
                     
                 }.foregroundColor(.red)
                 
                 Button("Reset application data") {
-                    vm.resetApp(realm: realm)
+                    vm.resetApp(realm: realm, env: env)
                     
                 }.foregroundColor(.red)
             }
             
         }
+        .fullScreenCover(
+            isPresented:  $env.onboarding,
+            content: {
+                OnboardingView()
+            }
+        )
         .navigationTitle("Profile")
     }
 }
@@ -80,6 +89,7 @@ struct ProfileView_Previews: PreviewProvider {
     
     static var previews: some View {
         ProfileView()
+            .environmentObject(Env())
             .environment(\.realm, PreviewRealm.preview)
         
     }

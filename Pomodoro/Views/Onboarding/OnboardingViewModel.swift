@@ -32,8 +32,10 @@ extension OnboardingView {
         @Published var selectedUsername = ""
         
         
-        func finishOnboarding(realm: Realm) -> Void {
+        func finishOnboarding(realm: Realm, env: Env) -> Void {
             if !selectedUsername.isEmpty {
+                
+                env.onboarding = false
                 
                 try? realm.write {
                     

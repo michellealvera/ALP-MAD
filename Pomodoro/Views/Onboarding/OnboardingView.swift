@@ -9,9 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct OnboardingView: View {
+    @EnvironmentObject var env: Env
     @Environment(\.realm) var realm
     
-   
+    
     @StateObject var vm: ViewModel = ViewModel()
     
     var body: some View {
@@ -81,7 +82,7 @@ struct OnboardingView: View {
                         .cornerRadius(10)
                     
                     Button(action: {
-                        vm.finishOnboarding(realm: realm)
+                        vm.finishOnboarding(realm: realm, env: env)
                     }) {
                         HStack(alignment:.center, spacing: 10) {
                             Spacer()
@@ -112,5 +113,6 @@ struct OnboardingView: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
+            .environmentObject(Env())
     }
 }

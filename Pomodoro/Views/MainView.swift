@@ -11,6 +11,7 @@ import SwiftUI
 struct MainView: View {
     // State for holding the the users choise
     @State private var selection: Tab? = .timer
+    @EnvironmentObject var env: Env
     private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
     
     // For tagging the tabs
@@ -114,6 +115,7 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(Env())
             .environment(\.realm, PreviewRealm.preview)
         
     }

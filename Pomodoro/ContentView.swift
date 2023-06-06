@@ -9,10 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    @ObservedResults(
-        Preference.self,
-        where: { $0.key == "hasFinishedOnboarding" }
-    ) var finishedOnboarding
+    @EnvironmentObject var env: Env
     
     var body: some View {
         
@@ -23,7 +20,7 @@ struct ContentView: View {
         }
         
         .fullScreenCover(
-            isPresented: Binding(get: { !(finishedOnboarding.first!.value == "true") }, set: {_ in }),
+            isPresented:  $env.onboarding,
             content: {
                 OnboardingView()
             }
@@ -34,11 +31,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     
-   
-    
     static var previews: some View {
         ContentView()
+            .environmentObject(Env())
             .environment(\.realm, PreviewRealm.preview)
-           
+        
     }
 }

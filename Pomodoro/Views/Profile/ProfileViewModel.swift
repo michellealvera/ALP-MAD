@@ -26,7 +26,7 @@ extension ProfileView {
             self.isEditingName.toggle()
         }
         
-        func resetTimer(realm: Realm) {
+        func resetTimer(realm: Realm, env: Env) {
             let timers = realm.objects(TimerTask.self)
             
             try? realm.write {
@@ -36,7 +36,7 @@ extension ProfileView {
             }
         }
         
-        func resetApp(realm: Realm) -> Void {
+        func resetApp(realm: Realm, env: Env) -> Void {
             let timers = realm.objects(TimerTask.self)
             
             let username = realm.object(ofType: Preference.self, forPrimaryKey: "username")
@@ -46,12 +46,14 @@ extension ProfileView {
                 
                 for timer in timers {
                     realm.delete(timer)
-                    username!.value = ""
-                    onboarding!.value = "false"
                 }
                 
-                
+                username!.value = ""
+                onboarding!.value = "false"
             }
+            
+            env.username = ""
+            env.onboarding = true
         }
     }
 }
