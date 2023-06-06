@@ -49,7 +49,7 @@ struct NumberPicker: View {
                 }
             }
             
-        }.padding()
+        }
     }
 }
 
