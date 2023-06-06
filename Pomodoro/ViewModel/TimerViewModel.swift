@@ -10,6 +10,7 @@ import Combine
 import RealmSwift
 
 enum sessionType {
+    case standby
     case Work
     case Short_Break
     case Long_Break
@@ -32,13 +33,13 @@ extension TimerView {
         @Published var isActive = false
         @Published var isPause = false
         @Published var showingAlert = false
-        var currentSession = sessionType.Short_Break
+        var currentSession = sessionType.standby
         var lapsedSession = 0
         
         // MARK: Hour:Minute:Second Text
         // Replace this with the users active timer duration
-        var originalTime: String = "3:00"
-        @Published var theTime: String = "3:00"
+        var originalTime: String = "0:00"
+        @Published var theTime: String = "0:00"
         var originalDuration: Double = 3.0
         @Published var sessionDuration: Double = 3.0 {
             didSet {
@@ -134,7 +135,13 @@ extension TimerView {
         
         func determineNextAction(){
             
-            if (currentSession == sessionType.Work){
+            if (currentSession == sessionType.standby) {
+                
+                // Helps prevent timer from starting during initialization
+                currentSession = sessionType.Short_Break
+                batchSetTime(theMinutes: Double(activeTimer.studyDuration))
+                
+            } else if (currentSession == sessionType.Work){
                 
                 // Execute Break Session
                 batchSetTime(theMinutes: Double(activeTimer.shortBreakDuration))
