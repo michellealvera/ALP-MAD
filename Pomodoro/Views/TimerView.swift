@@ -42,7 +42,7 @@ struct TimerView: View {
             HStack{
                 VStack(alignment: .leading, spacing: 8) {
                     
-                    Text("Home")
+                    Text("Timer")
                         .font(.headline)
                         .foregroundColor(Color("Grayscale Label"))
                     
