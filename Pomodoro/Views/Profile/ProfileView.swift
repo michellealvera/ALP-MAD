@@ -61,9 +61,12 @@ struct ProfileView: View {
             Section(header: Text("Danger Zone")) {
                 Button("Clear timer") {
                     
+                    vm.resetTimer(realm: realm)
+                    
                 }.foregroundColor(.red)
                 
                 Button("Reset application data") {
+                    vm.resetApp(realm: realm)
                     
                 }.foregroundColor(.red)
             }
