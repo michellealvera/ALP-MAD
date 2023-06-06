@@ -10,6 +10,7 @@ import SwiftUI
 struct NumberPicker: View {
     
     @State var quantity = 1
+    var maxQuantity: Int
     
     var body: some View {
         HStack(spacing: 6) {
@@ -31,7 +32,13 @@ struct NumberPicker: View {
                     .fontWeight(.medium)
                     .frame(minWidth: 60, minHeight: 40)
                 
-                Button(action: { quantity += 1 }) {
+                Button(action: {
+                        
+                    if (quantity + 1) < maxQuantity {
+                        quantity += 1
+                    }
+                    
+                }) {
                     Text("+")
                         .font(.title)
                         .foregroundColor(Color("Grayscale Off-Black"))
@@ -47,7 +54,13 @@ struct NumberPicker: View {
 }
 
 struct NumberPicker_Previews: PreviewProvider {
+    
+    @State static var quantity = 1
+    static let maxLimit = 10
+    
     static var previews: some View {
-        NumberPicker()
+        NumberPicker(
+            quantity: quantity,
+            maxQuantity: maxLimit)
     }
 }
