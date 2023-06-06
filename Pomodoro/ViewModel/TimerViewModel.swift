@@ -148,7 +148,7 @@ extension TimerView {
                 currentSession = sessionType.Short_Break
                 self.start()
                 
-            } else if (currentSession == sessionType.Short_Break) {
+            } else if (currentSession == sessionType.Short_Break && isActive) {
                 
                 // Check to do work again
                 if (activeTimer.studySessions != lapsedSession) {
