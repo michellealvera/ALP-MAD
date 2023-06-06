@@ -7,8 +7,12 @@
 
 import SwiftUI
 import Combine
+import RealmSwift
 
 struct AddTasksView: View {
+    
+    @Environment(\.realm) var realm
+    @Environment(\.dismiss) var dismiss
     
     // MARK: States
     
@@ -17,9 +21,11 @@ struct AddTasksView: View {
     
     let maxMinute = 59
     @State var minute: String = "1"
-    @State var shortBreak: Int = 5
-    @State var longBreak: Int = 10
     
+    @State var shortBreak: Int = 2
+    @State var studySession: String = "1"
+    
+    @State var longBreak: Int = 5
     @State var enableLongBreak = false
 
     var body: some View {
@@ -40,6 +46,7 @@ struct AddTasksView: View {
                     .padding()
                     .background(Color("Grayscale BG"))
                     .cornerRadius(16)
+                    .padding(.bottom, 20)
                 
                 // Session Length - Hours, Minutes and Seconds
                 Text("Session Length")
@@ -52,33 +59,36 @@ struct AddTasksView: View {
                               .multilineTextAlignment(.center)
                               .font(.title)
                               .keyboardType(.numberPad)
-                              .onReceive(Just(minute)) { _ in limitText(2) }
+                              .onReceive(Just(minute)) { _ in limitTextMinute(2) }
                          Rectangle()
                               .frame(height: 1)
-                              .foregroundColor(.black)
+                              .foregroundColor(Color("Grayscale Label"))
                               .padding(.horizontal, 160)
                     }
                     
                 }.frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.bottom, 20)
                 
                 // Make this into a component
                 // Pass in an individual State for each one
                 
                 // Short Break
-                Text("Short Break")
+                Text("Short Break Duration")
                     .fontWeight(.bold)
                 NumberPicker(quantity: shortBreak, maxQuantity: maxMinute)
+                    .padding(.bottom, 20)
                 
                 // Long Break
                 HStack{
                     Toggle(isOn: $enableLongBreak){
-                        Text("Long Break")
+                        Text("Long Break Duration")
                             .fontWeight(.bold)
                     }
                     .tint(Color("Violet 500"))
                 }
             
                 NumberPicker(quantity: longBreak, maxQuantity: maxMinute)
+                    .padding(.bottom, 20)
                 
     //            HStack{
     //                Toggle(isOn: $enableAutomaticStop) {
@@ -88,25 +98,48 @@ struct AddTasksView: View {
     //                .tint(Color("Violet 500"))
     //            }
                 
-                VStack(alignment: .leading) {
-                    Text("Long Break Starts After")
-                        .fontWeight(.bold)
-                        
+                HStack(alignment: .center, spacing: 8) {
                     
-                    HStack(alignment: .center){
-                        VStack {
-                             TextField("", text: $minute)
-                                  .padding(.horizontal, 16)
-                                  .font(.headline)
-                                  .keyboardType(.numberPad)
-                                  .onReceive(Just(minute)) { _ in limitText(2) }
-                             Rectangle()
-                                  .frame(height: 1)
-                                  .foregroundColor(.black)
-                                  .padding(.horizontal, 160)
-                        }
+                    Text("Long Break Starts After")
+                        .fontWeight(.medium)
+//                        .padding(.trailing, 10)
+                    
+                    
+                    VStack(alignment: .center) {
                         
-                    }.frame(maxWidth: .infinity, alignment: .leading)
+                        TextField("", text: $studySession)
+//                            .frame(width: 120)
+                            .padding(.leading, 16)
+                            .multilineTextAlignment(.trailing)
+                            .font(.headline)
+                            .keyboardType(.numberPad)
+                            .onReceive(Just($studySession)) { _ in limitTextMinute(2) }
+                             
+//                             .frame(height: 1)
+//                             .foregroundColor(.black)
+                        
+//                        Rectangle()
+//                            .frame(height: 1)
+//                            .foregroundColor(.black)
+                    }
+                    
+                    Text("Session")
+                        .font(.headline)
+                    
+//                    HStack(alignment: .center){
+//                        VStack {
+//                             TextField("", text: $minute)
+//                                  .padding(.horizontal, 16)
+//                                  .font(.headline)
+//                                  .keyboardType(.numberPad)
+//                                  .onReceive(Just(minute)) { _ in limitText(2) }
+//                             Rectangle()
+//                                  .frame(height: 1)
+//                                  .foregroundColor(.black)
+//                                  .padding(.horizontal, 160)
+//                        }
+                        
+//                    }.frame(maxWidth: .infinity, alignment: .leading)
                 }
 
                 
@@ -122,6 +155,7 @@ struct AddTasksView: View {
                 .padding()
                 .background(Color("Violet 500"))
                 .cornerRadius(8)
+                .padding(.vertical, 40)
                 
                 
             }
@@ -133,7 +167,7 @@ struct AddTasksView: View {
         
     }
     
-    func limitText(_ upper: Int) {
+    func limitTextMinute(_ upper: Int) {
         if minute.count > upper {
             minute = String(minute.prefix(upper))
         }
@@ -145,22 +179,43 @@ struct AddTasksView: View {
         
     }
     
+    func limitTextSession(_ upper: Int) {
+        if studySession.count > upper {
+            studySession = String(studySession.prefix(upper))
+        }
+        
+        let filtered = studySession.filter { "0123456789".contains($0) }
+        if filtered != studySession {
+            self.studySession = filtered
+        }
+        
+    }
+    
     func saveNewTimer(){
         
         if let safeMinute = Int(minute) {
             
+            if let safeStudy = Int(studySession) {
+                
+                
+                let newTimer = TimerTask(
+                    name: timerName,
+                    isActiveTimer: false,
+                    studyDuration: safeMinute,
+                    studySessions: safeStudy,
+                    shortBreakDuration: shortBreak,
+                    longBreakEnabled: enableLongBreak,
+                    longBreakDuration: longBreak
+                )
+                
+                try? realm.write {
+                  realm.add(newTimer)
+                }
+                dismiss()
+                
+            }
+
         }
-        
-        let newTimer = TimerTask(
-            name: timerName,
-            isActiveTimer: false,
-            studyDuration: Int(minute)!,
-            studySessions: 2,
-            shortBreakDuration: shortBreak,
-            longBreakEnabled: enableLongBreak,
-            longBreakDuration: longBreak
-        )
-        
     }
     
     
