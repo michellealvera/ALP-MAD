@@ -93,7 +93,7 @@ extension TimerView {
                     name: "DefaultTimer",
                     isActiveTimer: true,
                     studyDuration: 2,
-                    studySessions: 4,
+                    studySessions: 2,
                     shortBreakDuration: 1,
                     longBreakEnabled: true,
                     longBreakDuration: 3
