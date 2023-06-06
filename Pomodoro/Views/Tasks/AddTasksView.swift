@@ -21,7 +21,6 @@ struct AddTasksView: View {
     @State var longBreak: Int = 10
     
     @State var enableLongBreak = false
-    @State var enableAutomaticStop = false
 
     var body: some View {
         
@@ -148,7 +147,19 @@ struct AddTasksView: View {
     
     func saveNewTimer(){
         
-        let theMinute = Int(minute)
+        if let safeMinute = Int(minute) {
+            
+        }
+        
+        let newTimer = TimerTask(
+            name: timerName,
+            isActiveTimer: false,
+            studyDuration: Int(minute)!,
+            studySessions: 2,
+            shortBreakDuration: shortBreak,
+            longBreakEnabled: enableLongBreak,
+            longBreakDuration: longBreak
+        )
         
     }
     
