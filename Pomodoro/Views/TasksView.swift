@@ -55,14 +55,19 @@ struct TasksView: View {
                     
                     Spacer()
                     
-
-                    NavigationLink(value: "AddTasksView") {
-                        
-                        VioletActionButton {
-                            
-                        }
-                        
+                    NavigationLink{
+                        AddTasksView()
+                    } label: {
+                       Image(systemName: "plus")
+                           .resizable()
+                           .scaledToFill()
+                           .frame(width: 28, height: 28)
+                           .padding(20)
                     }
+                    .background(Color("Violet 500"))
+                    .foregroundColor (.white)
+                    .cornerRadius (.infinity)
+                    .padding()
 //                    .navigationDestination(for: String.self, destination: { view in
 //                        if view == "AddTasksView" {
 //                            AddTasksView()
